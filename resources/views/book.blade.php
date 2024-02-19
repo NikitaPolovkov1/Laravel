@@ -29,162 +29,157 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
-
-
-
-<!-- Class Time Section Begin -->
-<section class="classtime-section class-time-table spad">
+<section class="price-section spad set-bg" data-setbg="http://127.0.0.1:8000/Images/img_14.png" style="background-image: url(&quot;http://127.0.0.1:8000/Images/img_14.png&quot;);">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-title">
-                    <h2>Забронируйте дом</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="timetable-controls">
+            <!-- Your Room Blocks Here -->
+            <div class="col-lg-4">
+                <div class="single-price-plan"  style="padding-top: 0">
+                    <img src="{{asset('Images/img_4.png')}}" alt="">
+                    <h4 onClick="MyFunc2(this);">Отдельный дом</h4>
+                    <div class="price-plan">
+                        <h2>55 <span>$</span></h2>
+                        <p>день</p>
+                    </div>
                     <ul>
-                        <li class="active" data-tsfilter="all">Для отдыха</li>
-                        <li data-tsfilter="crossfit">Для мероприятий</li>
+                        <li>Включает завтрак обед и ужин</li>
+                        <li>1 classes per week</li>
+                        <li>FREE drinking package</li>
+                        <li>1 Free personal training</li>
                     </ul>
+                    <!-- Add onClick event handler to call MyFunc() -->
+                    <a href="#" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
+                    <div class="form_popup_info">
+                        <img src="{{asset('Images/img_4.png')}}" alt="">
+                        <h4>Отдельный дом</h4>
+                        <div class="price-plan">
+                            <h2>55 <span>$</span></h2>
+                            <p>день</p>
+                        </div>
+                        <ul>
+                            <li>Включает завтрак обед и ужин</li>
+                            <li>1 classes per week</li>
+                            <li>FREE drinking package</li>
+                            <li>1 Free personal training</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="classtime-table">
-            <table>
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                    <th>Sunday</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td class="workout-time">10.00</td>
-                    <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                        <span>10.00 - 14.00</span>
-                        <h6>Crossfit lv1</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                        <span>10.00 - 15.00</span>
-                        <h6>Crossfit lv1</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="lunge">
-                        <span>10.00 - 13.00</span>
-                        <h6>Lunge Ball Bur</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="lunge">
-                        <span>10.00 - 13.30</span>
-                        <h6>Lunge Ball Bur</h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="workout-time">14.00</td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="lunge">
-                        <span>14.00 - 17.00</span>
-                        <h6>Lunge Ball Bur</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                        <span>14.00 - 17.00</span>
-                        <h6>Crossfit lv1</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="walls">
-                        <span>14.00 - 15.30</span>
-                        <h6>Walls to Knees</h6>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="workout-time">16.00</td>
-                    <td class="hover-bg ts-item" data-tsmeta="lunge">
-                        <span>16.00 - 18.00</span>
-                        <h6>Lunge Ball Bur</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="candy">
-                        <span>16.00 - 19.00</span>
-                        <h6>Candy</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="candy">
-                        <span>16.00 - 19.00</span>
-                        <h6>Candy</h6>
-                    </td>
-                    <td class="hover-bg ts-item" data-tsmeta="ppsr">
-                        <span>16.00 - 17.00</span>
-                        <h6>Ppsr</h6>
-                    </td>
-                    <td class="hover-bg ts-item" data-tsmeta="murph">
-                        <span>16.00 - 20.00</span>
-                        <h6>murph</h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="workout-time">18.00</td>
-                    <td class="hover-bg ts-item" data-tsmeta="walls">
-                        <span>18.00 - 20.00</span>
-                        <h6>Walls to Knees</h6>
-                    </td>
-                    <td class="hover-bg ts-item" data-tsmeta="ppsr">
-                        <span>18.00 - 20.00</span>
-                        <h6>ppsr</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="chelsea">
-                        <span>18.00 - 22.00</span>
-                        <h6>Chelsea</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="annie">
-                        <span>18.00 - 22.00</span>
-                        <h6>annie</h6>
-                    </td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="workout-time">20.00</td>
-                    <td class="hover-bg ts-item" data-tsmeta="lunge">
-                        <span>21.00 - 23.00</span>
-                        <h6>Lunge Ball Bur</h6>
-                    </td>
-                    <td class="hover-bg ts-item" data-tsmeta="walls">
-                        <span>20.00 - 22.00</span>
-                        <h6>Walls to Knees</h6>
-                    </td>
-                    <td class="hover-bg ts-item" data-tsmeta="walls">
-                        <span>20.30 - 23.00</span>
-                        <h6>Walls to Knees</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                        <span>22.00 - 23.00</span>
-                        <h6>Crossfit Lv2</h6>
-                    </td>
-                    <td></td>
-                    <td class="hover-bg ts-item" data-tsmeta="crossfit">
-                        <span>21.00 - 23.00</span>
-                        <h6>Crossfit Lv2</h6>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="col-lg-4">
+                <div class="single-price-plan" style="padding-top: 0">
+                    <img src="{{asset('Images/img_4.png')}}" alt="">
+                    <h4 >sdfsf дом</h4>
+                    <div class="price-plan">
+                        <h2>55 <span>$</span></h2>
+                        <p>день</p>
+                    </div>
+                    <ul>
+                        <li>Включает завтрак обед и ужин</li>
+                        <li>1 classes per week</li>
+                        <li>FREE drinking package</li>
+                        <li>1 Free personal training</li>
+                    </ul>
+                    <!-- Add onClick event handler to call MyFunc() -->
+                    <a href="#" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="single-price-plan" style="padding-top: 0">
+                    <img src="{{asset('Images/img_4.png')}}" alt="">
+                    <h4>sdfsf дом</h4>
+                    <div class="price-plan">
+                        <h2>55 <span>$</span></h2>
+                        <p>день</p>
+                    </div>
+                    <ul>
+                        <li>Включает завтрак обед и ужин</li>
+                        <li>1 classes per week</li>
+                        <li>FREE drinking package</li>
+                        <li>1 Free personal training</li>
+                    </ul>
+                    <!-- Add onClick event handler to call MyFunc() -->
+                    <a href="#" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
+                </div>
+            </div>
+            <!-- End of Room Blocks -->
         </div>
     </div>
 </section>
+
+<div class="checkout_form">
+
+</div>
+
+<script>
+    function MyFunc2(element) {
+        // Get data from the room block
+        var roomBlock = $(element).closest('.single-price-plan');
+        roomBlock.find('.form_popup_info').toggleClass('active_popup');
+    }
+    function MyFunc(button) {
+        var roomBlock = $(button).closest('.single-price-plan');
+        var roomNumber = roomBlock.find('').text();
+        var price = roomBlock.find('.price-plan h2').text();
+        var amenities = roomBlock.find('ul').html();
+        var imageURL = roomBlock.find('img').attr('src'); // Get the image URL
+
+
+        // Create checkout form HTML
+        var checkoutFormHTML = `
+            <<img src="${imageURL}" alt="${roomNumber}">
+            <h2>${roomNumber}</h2>
+            <h3>${price}</h3>
+            <ul>${amenities}</ul>
+        `;
+
+        // Insert checkout form HTML into .checkout_form element
+        $('.checkout_form').html(checkoutFormHTML);
+        $('.container').addClass('cont_active');
+        // Show checkout form
+        $('.checkout_form').addClass('checkout_form_active');
+    }
+</script>
+
+<style>
+    .form_popup_info{
+        display: none;
+    }
+    .active_popup{
+        display: block;
+    }
+
+
+    .checkout_form{
+        width: 400px;
+        height: 600px;
+        border-radius: 30px;
+        position: fixed;
+        right: -1000px;
+        top:300px;
+        z-index: 100;
+        background-color: #FFF;
+        transition: .6s;
+    }
+
+    .checkout_form_active{
+        right: 0;
+        transition: .6s;
+    }
+
+    .container {
+        position: relative;
+        right: 0;
+        transition: right 0.6s ease;
+    }
+
+    .cont_active {
+        right: 200px;
+    }
+</style>
+
+
+
+
 
 <!-- Js Plugins -->
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
