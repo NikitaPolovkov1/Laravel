@@ -35,7 +35,7 @@
     <div class="container-fluid">
         <div class="logo">
             <a href="./index.html">
-                <img src="img/logo.png" alt="">
+                <img src="img/logo.svg" alt="">
             </a>
         </div>
         <div class="top-social">
@@ -49,17 +49,17 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
-                        <li class="active"><a href="./about-us.html">About us</a></li>
-                        <li><a href="./schedule.html">Schedule</a></li>
-                        <li><a href="./gallery.html">Gallery</a></li>
-                        <li><a href="./blog.html">Blog</a>
+                        <li><a href="/">Главная</a></li>
+                        <li class="active"><a href="/about">О нас</a></li>
+                        <li><a href="/usadba">Усадьба</a></li>
+                        <li><a href="/gallery">Фотогаллерея</a></li>
+                        <li><a href="/blog">Блог</a>
                             <ul class="dropdown">
                                 <li><a href="./about-us.html">About Us</a></li>
                                 <li><a href="./blog-single.html">Blog Details</a></li>
                             </ul>
                         </li>
-                        <li><a href="./contact.html">Contacts</a></li>
+                        <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -70,15 +70,15 @@
 <!-- Header End -->
 
 <!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg spad" data-setbg="img/about-bread.jpg">
+<section class="breadcrumb-section set-bg spad" data-setbg="{{asset('Images/img_16.png')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
-                    <h2>About Us</h2>
+                    <h2>О нас</h2>
                     <div class="breadcrumb-controls">
-                        <a href="#"><i class="fa fa-home"></i> Home</a>
-                        <span>About Us</span>
+                        <a href="/"><i class="fa fa-home"></i> Главная</a>
+                        <span>О нас</span>
                     </div>
                 </div>
             </div>
@@ -94,57 +94,42 @@
             <div class="row">
                 <div class="col-xl-9 col-lg-10 m-auto">
                     <div class="section-title">
-                        <h2>Who we Are & What We Do</h2>
-                        <p>CrossFit is a cutting-edge functional fitness system that can help everyday men. There is
-                            a significant portion of the population here in North America, that actually want
-                            and need success to be hard!</p>
+                        <h2>Кто мы и что мы делаем</h2>
+                        <p>Агроусадьба - это передовая система функциональной организации фермерского хозяйства, которая может помочь обычным людям. Существует значительная часть населения здесь, в Северной Америке, которая на самом деле хочет и нуждается в том, чтобы успех был достигнут!</p>
                     </div>
                 </div>
             </div>
-            <img src="img/about-us.jpg" alt="">
+            <img src="{{asset('Images/img_19.png')}}" alt="">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-us">
-                        <h4>ABOUT US</h4>
-                        <p>Having a baby can be a nerve wracking experience for new parents – not the nine
-                            months of pregnancy, I’m talking about after the infant is brought home from the
-                            hospital. It’s always the same thing, by the time they have their third child
-                            they have it all figured out, but with number one it’s a learning thing.</p>
-                        <p>Baby monitors help you hear your baby’s needs without you having to be in the
-                            room with the baby. Some baby monitors are portable, or “mobile” and are small
-                            enough that you can carry it in your pocket as you do your daily chores around
-                            the house. Depending on your price range it’s best to have a base unit that
-                            plugs into the wall. The receiving unit can be like your portable phone, you can
-                            carry it around with you, and plug it back into the base unit to be recharged.
-                        </p>
+                        <h4>О НАС</h4>
+                        <p>Создание семьи может быть нервным опытом для новых родителей - не только девять месяцев беременности, я говорю о времени после того, как ребенок привезен домой из роддома. Всегда одно и то же, когда у них появляется третий ребенок, они все понимают, но с первым это учебный процесс.</p>
+                        <p>Детские мониторы помогают слышать потребности вашего ребенка, не находясь в комнате с ним. Некоторые детские мониторы портативны или "мобильны" и достаточно малы, чтобы вы могли носить их в кармане, выполняя свои ежедневные дела по дому. В зависимости от вашего бюджета лучше иметь базовую единицу, которая вставляется в розетку. Приемное устройство может быть похоже на ваш мобильный телефон, вы можете носить его с собой и вставлять обратно в базовую единицу для зарядки.</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-quality">
-                        <h4>OUR QUALITY</h4>
-                        <p>Donec enim ipsum porta justo integer at velna vitae auctor integer congue magna
-                            at risus auctor purus unt pretium ligula rutrum integer sapien ultrice ligula
-                            luctus undo magna risus </p>
+                        <h4>НАШЕ КАЧЕСТВО</h4>
+                        <p>Агроусадьба - это уникальное место, где сливаются воедино труд и природа, забота и плоды земли. Здесь каждый день начинается с пения птиц, звуков ручья и запаха свежего воздуха. Это место, где утренний кофе собирается под звуки колокольчиков и солнечных лучей, а каждый закат дарит спокойствие и умиротворение после долгого трудового дня.</p>
                         <ul>
-                            <li><i class="fa fa-check-circle-o"></i>Lorem ipsum dolor sitdoni amet,
-                                consectetur dont adipis elite vivamus interdum.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Integer pulvinar ante nulla, ac
-                                fermentum ex congue id vestibulum ensectetur.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Proin blandit nibh in quam semper
-                                iaculis lorem ipsum dolor salama ender.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Quis ipsum suspendisse ultrices gravida.
-                                Risus commodo viverra maecenas accumsan lacus vel facilisis. </li>
+                            <li><i class="fa fa-check-circle-o"></i>У нас вы можете насладиться свежими фруктами и овощами, выращенными на наших полях без использования химических удобрений и пестицидов.</li>
+                            <li><i class="fa fa-check-circle-o"></i>Мы уделяем особое внимание качеству нашей продукции, следя за каждым этапом производства - от посева до сбора урожая.</li>
+                            <li><i class="fa fa-check-circle-o"></i>Наши фермеры заботятся о земле, внедряя современные методы устойчивого земледелия, чтобы сохранить богатство и плодородие почвы для будущих поколений.</li>
+                            <li><i class="fa fa-check-circle-o"></i>Мы приглашаем вас погрузиться в атмосферу агроусадьбы и насладиться вкусом настоящих натуральных продуктов, выращенных с любовью и заботой о природе.</li>
                         </ul>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Aboutus Section End -->
 
 <!-- Testimonial Section End -->
-<section class="testimonial-section set-bg spad" data-setbg="img/testimonial-bg.jpg">
+<section class="testimonial-section set-bg spad" data-setbg="{{asset('Images/img_18.png')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 offset-lg-1">
@@ -216,8 +201,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>OUR Trainer</h2>
-                    <p>Our Crossfit experts can help you discover new training techniques.</p>
+                    <h2>Наше руководство</h2>
                 </div>
             </div>
         </div>

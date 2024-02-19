@@ -49,7 +49,7 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="/">Home</a></li>
                         <li><a href="./about-us.html">About us</a></li>
                         <li class="active"><a href="./schedule.html">Schedule</a></li>
                         <li><a href="./gallery.html">Gallery</a></li>
