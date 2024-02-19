@@ -35,7 +35,7 @@
     <div class="container-fluid">
         <div class="logo">
             <a href="./index.html">
-                <img src="img/logo.png" alt="">
+                <img src="img/logo.svg" alt="">
             </a>
         </div>
         <div class="top-social">
@@ -49,17 +49,17 @@
             <div class="nav-menu">
                 <nav class="mainmenu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Главная</a></li>
-                        <li><a href="./about-us.html">О нас</a></li>
-                        <li><a href="./schedule.html">Усадьба</a></li>
-                        <li><a href="./gallery.html">Фотогалерея</a></li>
-                        <li><a href="./blog.html">Блог</a>
+                        <li class="active"><a href="/">Главная</a></li>
+                        <li><a href="/about">О нас</a></li>
+                        <li><a href="/usadba">Усадьба</a></li>
+                        <li><a href="/gallery">Фотогалерея</a></li>
+                        <li><a href="/blog">Блог</a>
                             <ul class="dropdown">
                                 <li><a href="./about-us.html">Мероприятия</a></li>
                                 <li><a href="./blog-single.html">События</a></li>
                             </ul>
                         </li>
-                        <li><a href="./contact.html">Контакты</a></li>
+                        <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </nav>
             </div>
@@ -85,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div class="single-hero-item set-bg" data-setbg="{{asset('Images/img_1.png')}}">
+        <div class="single-hero-item set-bg" data-setbg="{{asset('Images/img_14.png')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -121,21 +121,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                <div class="feature-item set-bg" data-setbg="img/feature/feature-1.jpg">
+                <div class="feature-item set-bg" data-setbg="{{asset('Images/img_11.png')}}">
                     <h3>Мероприятия</h3>
                     <p>The Sopranos manages to address the biases<br /> and benefits of therapy</p>
                     <a href="#" class="primary-btn f-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="feature-item set-bg" data-setbg="img/feature/feature-2.jpg">
+                <div class="feature-item set-bg" data-setbg="{{asset('Images/img_12.png')}}">
                     <h3>VIP - обслуживание</h3>
                     <p>Strep throat is very common during the flu<br /> seasons and it can be preceded</p>
                     <a href="#" class="primary-btn f-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="feature-item set-bg" data-setbg="img/feature/feature-3.jpg">
+                <div class="feature-item set-bg" data-setbg="{{asset('Images/img_10.png')}}">
                     <h3>Уютные домики</h3>
                     <p>A Human Being’s right to life implies his right to<br /> have the free and unrestricted</p>
                     <a href="#" class="primary-btn f-btn">Подробнее</a>
@@ -153,11 +153,8 @@
             <div class="col-lg-6">
                 <div class="about-text">
                     <h2>Добро пожаловать в отдых</h2>
-                    <p class="short-details">CrossFit is a cutting-edge functional fitness system that can help
-                        everyday men.</p>
-                    <p class="long-details">Success isn’t really that difficult. There is a significant portion of
-                        the population here in North America, that actually want and need success to be hard! For
-                        those of you who are serious about having more, doing more, giving more and being more.</p>
+                    <p class="short-details">ACTIVITAR - это не просто агроусадьба, это место, где воплощаются в жизнь ваши самые заветные мечты.</p>
+                    <p class="long-details">Наши уютные номера и коттеджи предлагают идеальное сочетание комфорта и аутентичного сельского стиля. Мы стремимся создать для вас домашнюю атмосферу, в которой вы сможете расслабиться и насладиться прекрасным отдыхом вдали от городской суеты.</p>
                     <a href="#" class="primary-btn about-btn">Подробнее</a>
                 </div>
             </div>
@@ -173,13 +170,12 @@
 
 <!-- Classes Section Begin -->
 <section class="classes-section">
-    <div class="class-title set-bg" data-setbg="img/classes-title-bg.jpg">
+    <div class="class-title set-bg" data-setbg="{{asset('Images/img_13.png')}}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7 m-auto text-center">
                     <div class="section-title pl-lg-4 pr-lg-4 pl-0 pr-0">
-                        <h2>Выбери свою программу</h2>
-                        <p>Our Crossfit experts can help you discover new training techniques and exercises that offer a dynamic and efficient full-body workout.</p>
+                        <h2>Выбери свой отдых</h2>
                     </div>
                 </div>
             </div>
@@ -381,7 +377,7 @@
 <!-- Class Time Section End -->
 
 <!-- Price Plan Section Begin -->
-<section class="price-section spad set-bg" data-setbg="{{asset('Images/img_9.png')}}">
+<section class="price-section spad set-bg" data-setbg="{{asset('Images/img_14.png')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -462,78 +458,17 @@
 <!-- Price Plan Section End -->
 
 <!-- Choseus Section Begin -->
-<section class="chooseus-section spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Why People Choose Us</h2>
-                    <p>Our sport experts and latest sports equipment are the winning combination.</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-1.png" alt="">
-                    <h5>Support 24/24</h5>
-                    <p>One of the best ways to make a great vacation quickly horrible is to choose the wrong
-                        accommodations for your trip. </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-2.png" alt="">
-                    <h5>Our trainer</h5>
-                    <p>If you are an infrequent traveler you may need some tips to keep the wife happy while you are
-                        jet setting around the globe.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-3.png" alt="">
-                    <h5>Personalized sessions</h5>
-                    <p>To succeed at any endeavor, you must stay the course…no matter what the cost! Here are some
-                        surefire tips to help you on your journey.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-4.png" alt="">
-                    <h5>Our equipment</h5>
-                    <p>Rugby and Stratford-upon-Avon. Additionally, there are many things to see and do in and
-                        around Coventry itself.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-5.png" alt="">
-                    <h5>Classes daily</h5>
-                    <p>We would just not have the will in us to go about our daily lives. Its motivation that helps
-                        us get through the most mundane.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="choose-item">
-                    <img src="img/icons/chose-icon-6.png" alt="">
-                    <h5>Focus on your health</h5>
-                    <p>But there is only so far we can go within the constraints of a family budget in building the
-                        perfect telescopic operation.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 <!-- Choseus Section End -->
 
 <!-- Video Section Begin -->
-<section class="video-section set-bg" data-setbg="img/video-bg.jpg">
+<section class="video-section set-bg" data-setbg="{{asset('Images/img_5.png')}}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="video-text">
-                    <h2>Gym In Dowtown New York</h2>
-                    <a href="https://www.youtube.com/watch?v=X_9VoqR5ojM" class="play-btn video-popup">
+                    <h2>Ознакомьтесь с нами</h2>
+                    <a href="https://www.youtube.com/watch?v=f2BfbICRQwk" class="play-btn video-popup">
                         <i class="fa fa-play"></i>
                     </a>
                 </div>
@@ -549,7 +484,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="section-title">
-                    <h2>From Our Blog</h2>
+                    <h2>Наши новости</h2>
                     <p>List of all news and events that take place related to us</p>
                 </div>
             </div>
@@ -620,8 +555,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="cta-text">
-                    <h3>GeT Started Today</h3>
-                    <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>
+                    <h3>Забронируй сегодня</h3>
+                    <p>Получи 50% скидку на отдых для двоих</p>
                 </div>
                 <a href="#" class="primary-btn cta-btn">book now</a>
             </div>
@@ -663,7 +598,7 @@
             <div class="col-lg-3">
                 <div class="footer-logo-item">
                     <div class="f-logo">
-                        <a href="#"><img src="img/logo.png" alt=""></a>
+                        <a href="#"><img src="img/logo.svg" alt=""></a>
                     </div>
                     <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
                         in television advertising continues.</p>
