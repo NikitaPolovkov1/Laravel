@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
+            $table->string('room_name');
+            $table->string('price_at_hour');
+            $table->string('room_img');
+            $table->string('room_images');
+            $table->json('room_attributes');
             $table->timestamps();
         });
     }
