@@ -87,10 +87,32 @@
 
 
 <div class="checkout_form">
+    <img src="" alt="">
+    <h2></h2>
+    <h3></h3>
+    <div class="single-price-plan">
+        <ul></ul>
+    </div>
 
 </div>
 
+<div id="room-data" data-rooms='<?php echo json_encode($rooms); ?>'></div>
+
 <script>
+    // Получить данные из атрибута data-rooms
+    var roomsData = document.getElementById('room-data').getAttribute('data-rooms');
+    var rooms = JSON.parse(roomsData)
+</script>
+
+
+<script>
+
+    function func3(){
+        var rooms = <?php echo $rooms; ?>;
+
+        console.log(rooms);
+    }
+
     function MyFunc2(element) {
         $('.threed_cont').toggleClass('active_webdl');
     }
@@ -102,15 +124,15 @@
         var roomNumber = roomBlock.find('h4').text();
         var price = roomBlock.find('.price-plan h2').text();
         var amenities = roomBlock.find('ul').html();
-        var imageURL = roomBlock.find('img').attr('src'); // Get the image URL
+        var imageURL = roomBlock.find('.single-hero-item').attr('data-setbg');
 
 
         // Create checkout form HTML
         var checkoutFormHTML = `
-            <<img src="${imageURL}" alt="${roomNumber}">
+            <img src="${imageURL}" alt="${roomNumber}">
             <h2>${roomNumber}</h2>
             <h3>${price}</h3>
-            <div class="single-price-plan   ">
+            <div class="single-price-plan">
             <ul>${amenities}</ul>
             </div>
         `;
@@ -118,6 +140,8 @@
         // Insert checkout form HTML into .checkout_form element
         $('.checkout_form').html(checkoutFormHTML);
         $('.container').addClass('cont_active');
+        $('.container').css({'max-width' : '780px'});
+        $('.col-lg-6').css({'width' : '100%', 'max-width': '100%'});
         // Show checkout form
         $('.checkout_form').addClass('checkout_form_active');
     }
@@ -161,7 +185,7 @@
         border-radius: 30px;
         position: fixed;
         right: -1000px;
-        top:30px;
+        top: 90px;
         z-index: 100;
         background-color: #FFF;
         transition: .6s;
@@ -179,7 +203,7 @@
     }
 
     .cont_active {
-        right: 200px;
+        right: 450px;
     }
 
     .attributes_room{

@@ -13,18 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MainController@show');
+Route::get('/houses', 'HousesController@show');
+Route::get('/houses/{id}', 'HouseController@show')->name('house');
 
-Route::get('/posts', 'PostController@index');
 Route::get('/about', 'AboutController@index');
 Route::get('/usadba', 'UsadbaController@index');
-
 Route::get('/gallery', 'GalleryController@index');
-
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/blogsingle', 'BlogSingleController@index');
 
 
-Route::get('/book', 'BookController@index');
+
