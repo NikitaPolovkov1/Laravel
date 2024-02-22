@@ -27,8 +27,8 @@
                             <ul class="attributes_room">
                                 @foreach(json_decode($house->attributes) as $house_attribute)
                                     <li style="display: flex">
-                                        <img style="width: 20px" src="{{ $house_attribute->image}}" alt="">
-                                        <p>{{ $house_attribute->attribute }}</p>
+                                        <img style="width: 20px" src="{{ $house_attribute->attribute1}}" alt="">
+                                        <p>{{ $house_attribute->attribute2 }}</p>
                                     </li>
                                 @endforeach
 
@@ -36,7 +36,7 @@
                             <p style="text-align: start">{{$house->description}}</p>
                             <br>
                             <!-- Add onClick event handler to call MyFunc() -->
-                            <a href="/houses/{{$house->id}}" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
+                            <a href="/houses/{{$house->houseID}}" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
                         </div>
                     </div>
                 </div>

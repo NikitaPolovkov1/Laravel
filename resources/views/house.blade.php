@@ -1,5 +1,4 @@
 @include('includes.header')
-
 <section class="home-about spad">
     <div class="container">
         <div class="row">
@@ -10,8 +9,8 @@
                     <ul class="attributes_room">
                         @foreach(json_decode($house->attributes) as $house_attribute)
                             <li style="display: flex">
-                                <img style="width: 20px" src="{{asset( $house_attribute->image)}}" alt="">
-                                <p>{{ $house_attribute->attribute }}</p>
+                                <img style="width: 20px" src="{{asset( $house_attribute->attribute1)}}" alt="">
+                                <p>{{ $house_attribute->attribute2 }}</p>
                             </li>
                         @endforeach
 
@@ -20,15 +19,115 @@
             </div>
             <div class="col-lg-6">
                 <div class="about-img">
-                    <img src="http://127.0.0.1:8001/Images/img_4.png" alt="">
+                    <img src="http://127.0.0.1:8000/Images/img_4.png" alt="">
                 </div>
             </div>
         </div>
+        <div class="select_dates">
+            <input type="text" id="daterange" name="daterange" value="01/01/2018 - 01/15/2018" />
+            <button onclick="checkAvailability()">Забронировать</button>
+        </div>
+
+
     </div>
 </section>
-@foreach(json_decode($house->date->free_dates) as $date)
-    {{$date}}
-@endforeach
+<div class="" id="mydiv"></div>
+<!-- Ваш Blade-шаблон Laravel -->
+<!-- Ваш Blade-шаблон Laravel -->
+<input type="hidden" id="my_var" value="{{json_encode($result)}}">
+
+<script>
+    function checkAvailability() {
+        var dateRange = document.getElementById('daterange').value;
+        var startDate = new Date(dateRange.split(' - ')[0]);
+        var endDate = new Date(dateRange.split(' - ')[1]);
+
+        var isAvailable = true;
+        var bookedDates = [];
+
+        dataObject.forEach((data) => {
+            if (data.houseID == 1) {
+
+
+                var dataStartDate = new Date(data.start_date);
+                var dataEndDate = new Date(data.end_date);
+
+                if ((startDate >= dataStartDate && startDate <= dataEndDate) || (endDate >= dataStartDate && endDate <= dataEndDate)) {
+                    isAvailable = false;
+                    bookedDates.push(data.start_date + ' - ' + data.end_date);
+                }
+            }
+        });
+
+        if (isAvailable) {
+            document.getElementById('mydiv').innerHTML = 'Дата доступна для бронирования';
+        } else {
+            document.getElementById('mydiv').innerHTML = 'Дата недоступна для бронирования.<br>Забронированные даты: ' + bookedDates.join(', ');
+        }
+    }
+</script>
+<script>
+    var js_var = document.getElementById("my_var").value;
+    var dataObject = JSON.parse(js_var);
+
+    dataObject.forEach((data)=>{
+        if(data.houseID == 1)
+        {
+        document.getElementById('mydiv').innerHTML += data.start_date + '';
+            document.getElementById('mydiv').innerHTML += data.end_date + '<br>';
+            }
+    })
+    // Делаем что-то с полученной датой
+</script>
+
+
+
+<script>
+
+
+    $('input[name="daterange"]').daterangepicker({
+        "showDropdowns": true,
+        "locale": {
+            "format": "MM/DD/YYYY",
+            "separator": " - ",
+            "applyLabel": "Применить",
+            "cancelLabel": "Отмена",
+            "fromLabel": "С",
+            "toLabel": "По",
+            "customRangeLabel": "Custom",
+            "weekLabel": "Н",
+            "daysOfWeek": [
+                "Вс",
+                "Пн",
+                "Вт",
+                "Ср",
+                "Чт",
+                "Пт",
+                "Сб"
+            ],
+            "monthNames": [
+                "Январь",
+                "Февраль",
+                "Март",
+                "Апрель",
+                "Май",
+                "Июнь",
+                "Июль",
+                "Август",
+                "Сентябрь",
+                "Октябрь",
+                "Ноябрь",
+                "Декабрь"
+            ],
+            "firstDay": 1
+        },
+        "startDate": "02/16/2024",
+        "endDate": "02/22/2024"
+    }, function(start, end, label) {
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+    });
+</script>
+
 
 
 
