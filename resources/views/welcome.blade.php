@@ -34,7 +34,7 @@
 <header class="header-section">
     <div class="container-fluid">
         <div class="logo">
-            <a href="./index.html">
+            <a href="/">
                 <img src="img/logo.svg" alt="">
             </a>
         </div>
@@ -51,9 +51,15 @@
                     <ul>
                         <li class="active"><a href="/">Главная</a></li>
                         <li><a href="/about">О нас</a></li>
-                        <li><a href="/usadba">Усадьба</a></li>
+                        <li><a href="/usadba">Усадьба</a>
+                            <ul class="dropdown">
+                                <li><a href="./houses">Дома</a></li>
+                                <li><a href="./blog-single.html">Мероприятия</a></li>
+                                <li><a href="./blog-single.html">Услуги</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/gallery">Фотогалерея</a></li>
-                        <li><a href="/booking">Бронирование</a></li>
+
                         <li><a href="/blog">Блог</a>
                             <ul class="dropdown">
                                 <li><a href="./about-us.html">Мероприятия</a></li>
@@ -124,22 +130,22 @@
             <div class="col-md-4">
                 <div class="feature-item set-bg" data-setbg="{{asset('Images/img_11.png')}}">
                     <h3>Мероприятия</h3>
-                    <p>The Sopranos manages to address the biases<br /> and benefits of therapy</p>
-                    <a href="#" class="primary-btn f-btn">Подробнее</a>
+                    <p>Наши мероприятия - это идеальное сочетание стиля, уюта и профессионализма, которое сделает ваше событие неповторимым и запоминающимся.</p>
+                    <a href="/meroprim" class="primary-btn f-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-item set-bg" data-setbg="{{asset('Images/img_12.png')}}">
-                    <h3>VIP - обслуживание</h3>
-                    <p>Strep throat is very common during the flu<br /> seasons and it can be preceded</p>
+                    <h3>Услуги</h3>
+                    <p>Наши разнообразные услуги предоставят вам незабываемый опыт отдыха, сочетая в себе комфорт, уют и внимательное обслуживание в прекрасной атмосфере усадьбы.</p>
                     <a href="#" class="primary-btn f-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-item set-bg" data-setbg="{{asset('Images/img_10.png')}}">
                     <h3>Уютные домики</h3>
-                    <p>A Human Being’s right to life implies his right to<br /> have the free and unrestricted</p>
-                    <a href="#" class="primary-btn f-btn">Подробнее</a>
+                    <p>Уютные домики предлагают идеальное сочетание комфорта и природной гармонии, чтобы вы могли насладиться спокойным отдыхом в обворожительной обстановке нашей усадьбы</p>
+                    <a href="/houses" class="primary-btn f-btn">Подробнее</a>
                 </div>
             </div>
         </div>
@@ -186,30 +192,30 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <div class="classes-item set-bg" data-setbg="{{asset('Images/img_5.png')}}">
-                    <h4>Crossfit Level 1</h4>
-                    <p>Sufferers around the globe will be happy to hear that there are sleep apnea remedies.</p>
+                    <h4>Пассивный отдых</h4>
+                    <p>Покатайтесь на велосипедах по нашей усадьбе, наслаждаясь медленным и спокойным отдыхом в окружении природы</p>
                     <a href="#" class="primary-btn class-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="classes-item set-bg" data-setbg="{{asset('Images/img_6.png')}}">
-                    <h4>BootCamp</h4>
-                    <p>The oil, also called linseed oil, has many industrial uses – it is an important ingredient
+                    <h4>Активный отдых</h4>
+                    <p>Дайте волю своему воображению и создайте незабываемые воспоминания с нашим разнообразным выбором мероприятий
                     </p>
                     <a href="#" class="primary-btn class-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="classes-item set-bg" data-setbg="{{asset('Images/img_7.png')}}">
-                    <h4>Energy Blast</h4>
-                    <p>It is a very common occurrence like cold or fever depending upon your lifestyle. </p>
+                    <h4>Духовный отдых</h4>
+                    <p>Откройте для себя глубину внутреннего покоя с нашими программами духовного отдыха, включающей медитации и йогу </p>
                     <a href="#" class="primary-btn class-btn">Подробнее</a>
                 </div>
             </div>
             <div class="col-lg-3 col-sm-6">
                 <div class="classes-item set-bg" data-setbg="{{asset('Images/img_8.png')}}">
-                    <h4>CLASSIC BODY BALANCE</h4>
-                    <p>The procedure is usually a preferred alternative to photorefractive keratectomy,</p>
+                    <h4>Классический отдых</h4>
+                    <p>Наши уютные домики, изысканная кухня и умиротворяющая атмосфера создают идеальные условия для  отдыха</p>
                     <a href="#" class="primary-btn class-btn">Подробнее</a>
                 </div>
             </div>
@@ -242,7 +248,7 @@
             <div class="col-lg-12 text-center">
                 <div class="section-title">
                     <h2>Наши новости</h2>
-                    <p>List of all news and events that take place related to us</p>
+                    <p>Здесь представлены наша повседневная жизнь и проодимые мероприятия</p>
                 </div>
             </div>
         </div>
@@ -348,106 +354,11 @@
 </div>
 <!-- Map Section End -->
 
-<!-- Footer Section Begin -->
-<footer class="footer-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="footer-logo-item">
-                    <div class="f-logo">
-                        <a href="#"><img src="img/logo.svg" alt=""></a>
-                    </div>
-                    <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
-                        in television advertising continues.</p>
-                    <div class="social-links">
-                        <h6>Follow us</h6>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 offset-lg-1">
-                <div class="footer-widget">
-                    <h5>Our Blog</h5>
-                    <div class="footer-blog">
-                        <a href="#" class="fb-item">
-                            <h6>Most people who work</h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                        </a>
-                        <a href="#" class="fb-item">
-                            <h6>Freelance Design Tricks How </h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                        </a>
-                        <a href="#" class="fb-item">
-                            <h6>have a computer at home have had </h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="footer-widget">
-                    <h5>Program</h5>
-                    <ul class="workout-program">
-                        <li><a href="#">Bodybuilding</a></li>
-                        <li><a href="#">Running</a></li>
-                        <li><a href="#">Streching</a></li>
-                        <li><a href="#">Weight Loss</a></li>
-                        <li><a href="#">Gym Fitness</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="footer-widget">
-                    <h5>Get Info</h5>
-                    <ul class="footer-info">
-                        <li>
-                            <i class="fa fa-phone"></i>
-                            <span>Phone:</span>
-                            (12) 345 6789
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope-o"></i>
-                            <span>Email:</span>
-                            Colorlib.info@gmail.com
-                        </li>
-                        <li>
-                            <i class="fa fa-map-marker"></i>
-                            <span>Address</span>
-                            Iris Watson, Box 283 8562, NY
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="ct-inside"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 <!-- Footer Section End -->
 
 <!-- Js Plugins -->
 <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
-<script src="{{asset('js/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
-<script src="{{asset('js/mixitup.min.js')}}"></script>
-<script src="{{asset('js/jquery.nice-select.min.js')}}"></script>
-<script src="{{asset('js/jquery.slicknav.js')}}"></script>
-<script src="{{asset('js/owl.carousel.min.js')}}"></script>
-<script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
-</body>
 
-</html>
+
+@include('includes/footer')
+

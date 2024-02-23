@@ -10,7 +10,7 @@
                     <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
                         in television advertising continues.</p>
                     <div class="social-links">
-                        <h6>Follow us</h6>
+                        <h6>Подпишитесь</h6>
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-google-plus"></i></a>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-lg-3 offset-lg-1">
                 <div class="footer-widget">
-                    <h5>Our Blog</h5>
+                    <h5>Блог</h5>
                     <div class="footer-blog">
                         <a href="#" class="fb-item">
                             <h6>Most people who work</h6>
@@ -40,19 +40,19 @@
             </div>
             <div class="col-lg-2">
                 <div class="footer-widget">
-                    <h5>Program</h5>
+                    <h5>Меню</h5>
                     <ul class="workout-program">
-                        <li><a href="#">Bodybuilding</a></li>
-                        <li><a href="#">Running</a></li>
-                        <li><a href="#">Streching</a></li>
-                        <li><a href="#">Weight Loss</a></li>
-                        <li><a href="#">Gym Fitness</a></li>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/about">О нас</a></li>
+                        <li><a href="/usadba">Усадьба</a>
+                        <li><a href="/gallery">Фотогаллерея</a></li>
+                        <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-3">
                 <div class="footer-widget">
-                    <h5>Get Info</h5>
+                    <h5>Информация</h5>
                     <ul class="footer-info">
                         <li>
                             <i class="fa fa-phone"></i>
@@ -100,6 +100,9 @@
 <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/house.js')}}"></script>
+
+
 </body>
 
 </html>

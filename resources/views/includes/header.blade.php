@@ -22,11 +22,16 @@
     <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('css/style_new.css')}}" type="text/css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
+
 </head>
 
 <body>
@@ -39,8 +44,8 @@
 <header class="header-section header-normal">
     <div class="container-fluid">
         <div class="logo">
-            <a href="./index.html">
-                <img src="img/logo.svg" alt="">
+            <a href="/">
+                <img src="{{asset('img/logo.svg')}}" alt="">
             </a>
         </div>
         <div class="top-social">
@@ -56,7 +61,13 @@
                     <ul>
                         <li><a href="/">Главная</a></li>
                         <li class="active"><a href="/about">О нас</a></li>
-                        <li><a href="/usadba">Усадьба</a></li>
+                        <li><a href="/usadba">Усадьба</a>
+                            <ul class="dropdown">
+                                <li><a href="./houses">Дома</a></li>
+                                <li><a href="./meropria">Мероприятия</a></li>
+                                <li><a href="./blog-single.html">Услуги</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/gallery">Фотогаллерея</a></li>
                         <li><a href="/blog">Блог</a>
                             <ul class="dropdown">

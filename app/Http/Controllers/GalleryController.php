@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\House;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class GalleryController extends Controller
 {
     function show()
     {
-        return view('about');
+
+        return view('gallery');
     }
 }
