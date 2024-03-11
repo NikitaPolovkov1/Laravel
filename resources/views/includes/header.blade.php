@@ -71,7 +71,7 @@
                         <li><a href="/usadba">Усадьба</a>
                             <ul class="dropdown">
                                 <li><a href="./houses">Дома</a></li>
-                                <li><a href="./events">Мероприятия</a></li>
+                                <li><a href="/events">Мероприятия</a></li>
                                 <li><a href="./blog-single.html">Услуги</a></li>
                             </ul>
                         </li>

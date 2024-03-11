@@ -18,10 +18,20 @@
         </div>
     </div>
 </section>
+
 <!-- Breadcrumb End -->
 
 <section class="price-section spad set-bg"  style="background-color: black">
     <div class="container">
+        <div class="dropdown mb-3" style="text-align: end">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Сортировать
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/houses&price=asc">Сортировать по цене вверх</a>
+                <a class="dropdown-item" href="/houses&price=desc">Сортировать по цене вниз</a>
+            </div>
+        </div>
         <div class="row">
 
 
@@ -57,7 +67,7 @@
                             <p style="text-align: start">{{$house->description}}</p>
                             <br>
                             <!-- Add onClick event handler to call MyFunc() -->
-                            <a href="/houses/{{$house->houseID}}" class="primary-btn price-btn" onClick="MyFunc(this)">Забронировать</a>
+                            <a href="/houses/{{$house->houseID}}" class="primary-btn price-btn" >Забронировать</a>
                         </div>
                     </div>
                 </div>
@@ -228,6 +238,17 @@
 
 
 </style>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery (необходим для Bootstrap JavaScript) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 

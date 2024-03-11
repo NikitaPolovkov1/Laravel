@@ -19,4 +19,6 @@ class HouseController extends Controller
 
         return view('house', compact('house'), compact('result'));
     }
+
+
 }

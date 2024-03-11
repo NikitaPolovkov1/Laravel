@@ -24,25 +24,25 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
-                <div class="classes-item set-bg" data-setbg="img/classes/class-1.jpg">
+                <div class="classes-item set-bg" data-setbg="{{asset('fotogallery/1.jpg')}}">
                     <h4>Дома</h4>
-                    <p>Sufferers around the globe will be happy to hear that there are sleep apnea remedies.</p>
-                    <a href="#" class="primary-btn class-btn">Read More</a>
+                    <p>Выберите дом под свой комфорт</p>
+                    <a href="/houses" class="primary-btn class-btn">Выбрать</a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="classes-item set-bg" data-setbg="img/classes/class-2.jpg">
+                <div class="classes-item set-bg" data-setbg="{{asset('fotogallery/2.jpg')}}">
                     <h4>Мероприятия</h4>
-                    <p>The oil, also called linseed oil, has many industrial uses – it is an important ingredient
+                    <p>Проведите своё мероприятие на высшем уровне
                     </p>
-                    <a href="#" class="primary-btn class-btn">Read More</a>
+                    <a href="/events" class="primary-btn class-btn">Выбрать</a>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="classes-item set-bg" data-setbg="img/classes/class-3.jpg">
+                <div class="classes-item set-bg" data-setbg="{{asset('fotogallery/4.jpg')}}">
                     <h4>Услуги</h4>
-                    <p>It is a very common occurrence like cold or fever depending upon your lifestyle. </p>
-                    <a href="#" class="primary-btn class-btn">Read More</a>
+                    <p>Проведите своё мероприятие на высшем уровне </p>
+                    <a href="#" class="primary-btn class-btn">Вырать</a>
                 </div>
             </div>
 

@@ -27,29 +27,21 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="about-text">
-                    <h2>{{$house->name}}</h2>
-                    <p class="long-details">{{$house->description}}</p>
-                    <ul class="attributes_room">
-                        @foreach(json_decode($house->attributes) as $house_attribute)
-                            <li style="display: flex">
-                                <img style="width: 20px" src="{{asset( $house_attribute->attribute1)}}" alt="">
-                                <p>{{ $house_attribute->attribute2 }}</p>
-                            </li>
-                        @endforeach
-
-                    </ul>
+                    <h2>{{$event->name}}</h2>
+                    <p class="long-details">{{$event->description}}</p>
+                    <p class="long-details">{{$event->price}}</p>
                 </div>
                 <br>
-                <a style="text-align: start; color: #FFF" class=""  onClick="MyFunc2();">Посмотрите в 3D</a>
+
             </div>
             <div class="col-lg-6">
                 <div class="about-img">
                     <div class="hero-items owl-carousel">
 
-                        @foreach(json_decode($house->images) as $image)
-                            <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{asset($image)}}">
-                            </div>
-                        @endforeach
+{{--                        @foreach(json_decode($house->images) as $image)--}}
+{{--                            <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{asset($image)}}">--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
                     </div>
                 </div>
             </div>
@@ -61,7 +53,7 @@
         </div>
         <form method="POST" action="{{ route('submit-form') }}" class="book_house" style="max-width: 1200px">
             @csrf
-            <h3 style="color: #FFF">Забронировать дом:</h3>
+            <h3 style="color: #FFF">Заказать мероприятие:</h3>
             <div class="d-flex" style="gap: 20px">
                 <div class="w-50">
                     <div class="form-group">
@@ -100,11 +92,6 @@
                         <small id="emailHelp" class="form-text text-muted">Нам важно знать как вас зовут</small>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Гражданство</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Гражданство">
-                        <small id="emailHelp" class="form-text text-muted">Нам важно знать кто вы</small>
-                    </div>
-                    <div class="form-group">
                         <label for="exampleInputEmail1">Телефон</label>
                         <input type="tel" class="form-control" id="phone1" aria-describedby="emailHelp" placeholder="Телефон">
                         <small id="emailHelp" class="form-text text-muted">Нам важно знать для связи с вами</small>
@@ -135,15 +122,15 @@
 
 <div class=" threed_cont">
     <div class="text">
-        <h2>{{$house->name}}</h2>
-        <p>{{$house->description}}</p>
+{{--        <h2>{{$house->name}}</h2>--}}
+{{--        <p>{{$house->description}}</p>--}}
     </div>
     <canvas class="webgl"></canvas>
     <a class="close_threed" onclick="MyFunc3()"><img src="{{asset('Icons/close.png')}}" alt=""></a>
 </div>
 
 <div class="" id="mydiv"></div>
-<input type="hidden" id="my_var" value="{{json_encode($result)}}">
+{{--<input type="hidden" id="my_var" value="{{json_encode($result)}}">--}}
 <script src="https://www.sng-it.ru/bitrix/templates/master/js/jquery.inputmask.bundle.min.js"></script>
 
 <inut id="phone1" type="text" name="phone1" value="" placeholder="Телефон" />

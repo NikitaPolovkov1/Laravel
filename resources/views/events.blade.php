@@ -3,19 +3,19 @@
     <div class="container">
         <div class="row">
             @foreach($types as $type)
-                <button class="btn btn-dark m-2"><a href="/event/category={{$type->name}}">{{$type->name}}</a></button>
+                <button class="btn btn-dark m-2"><a style="color: #FFF;" href="/event/category={{$type->name}}">{{$type->name}}</a></button>
             @endforeach
         </div>
         <div class="row">
             @foreach($events as $event)
-                <div class="col-lg-6">
-                    <div class="single-price-plan"  style="padding-top: 0">
+                <div class="col-lg-4">
+                    <div class="single-price-plan"  style="padding-top: 0; min-height: 569px">
                         <div class="about-img">
                             <section class="hero-section">
                                 <div class="hero-items owl-carousel">
 
                                     @foreach(json_decode($event->photos) as $image)
-                                        <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{asset($image)}}">
+                                        <div class="single-hero-item set-bg" style="max-height: 200px" data-setbg="{{asset($image)}}">
                                         </div>
                                     @endforeach
                                 </div>

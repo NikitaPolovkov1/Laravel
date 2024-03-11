@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'MainController@show');
 Route::get('/houses', 'HousesController@show');
 Route::get('/houses/{id}', 'HouseController@show')->name('house');
+Route::get('/houses&price={price}', 'HousesController@showByPrice')->name('house');
+
+
 Route::get('/usadba', 'UsadbaController@show');
 Route::get('/gallery', 'GalleryController@show');
 Route::get('/blog', 'BlogController@show');
@@ -24,15 +27,16 @@ Route::get('/blog/category={category}', [\App\Http\Controllers\BlogController::c
 
 Route::get('/contacts', 'ContactsController@show');
 Route::get('/events', 'EventsController@show');
+Route::get('/events/{id}', 'EventsController@showOne');
 
-Route::get('/events/category={category}', [\App\Http\Controllers\EventsController::class,'showEventsByCategory']);
+Route::get('/event/category={category}', [\App\Http\Controllers\EventsController::class,'showEventsByCategory']);
 
 Route::get('/about', 'AboutController@show');
 
 
 Route::get('/blog/blogsingle', 'BlogSingleController@index');
 
-
+Route::post('/submit-form', [App\Http\Controllers\LeadController::class, 'store'])->name('submit-form');
 
 
 Auth::routes();
