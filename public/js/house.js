@@ -1,3 +1,12 @@
+$('input[name="daterange"]').on("input", function() {
+    checkAvailability();
+});
+
+
+$('#phone1').inputmask("+375 (99) 999-99-99");
+
+
+
 //Date range picker
 $('input[name="daterange"]').daterangepicker({
     "showDropdowns": true,
@@ -71,9 +80,9 @@ function checkAvailability() {
     });
 
     if (isAvailable) {
-        document.getElementById('mydiv').innerHTML = 'Дата доступна для бронирования';
+        document.getElementById('dateHelp').innerHTML = 'Дата доступна для бронирования';
     } else {
-        document.getElementById('mydiv').innerHTML = 'Дата недоступна для бронирования.<br>Забронированные даты: ' + bookedDates.join(', ');
+        document.getElementById('dateHelp').innerHTML = 'Дата недоступна для бронирования';
     }
 }
 
@@ -92,8 +101,8 @@ const canvas = document.querySelector('.webgl')
 const scene = new THREE.Scene()
 const textureLoader = new THREE.TextureLoader()
 const sizes = {
-    width: 800,
-    height:800
+    width: 600,
+    height:600
 }
 
 // Base camera

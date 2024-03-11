@@ -1,4 +1,25 @@
 @include('includes.header')
+
+
+<!-- Breadcrumb Section Begin -->
+<section class="breadcrumb-section set-bg spad " data-setbg="{{asset('Images/img_20.png')}}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Дома</h2>
+                    <div class="breadcrumb-controls">
+                        <a href="/"><i class="fa fa-home"></i> Главная</a>
+                        <a href="/usadba">Усадьба</a>
+                        <span>Дома</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb End -->
+
 <section class="price-section spad set-bg"  style="background-color: black">
     <div class="container">
         <div class="row">

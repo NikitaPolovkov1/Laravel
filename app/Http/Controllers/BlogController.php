@@ -30,22 +30,20 @@ class BlogController extends Controller
 
     public function showPostsByCategory($categoryName)
     {
+
         // Находим категорию по имени
         $posts = DB::table('posts')
             ->join('posts_categories', 'posts.post_id', '=', 'posts_categories.post_id')
             ->join('categories', 'posts_categories.category_id', '=', 'categories.category_id')
-            ->where('posts_categories.category_name', $categoryName)
+            ->where('categories.category_name', $categoryName)
             ->select('posts.*')
             ->get();
 
-        // Если категория не найдена, можно вернуть сообщение об ошибке или перенаправить на другую страницу
         if (!$posts) {
             abort(404);
         }
 
-        // Получаем все посты, относящиеся к данной категории
+        return view('blog', compact('posts' ));
 
-        // Передаем переменные в представление
-        return view('blog', compact('posts'));
     }
 }

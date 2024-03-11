@@ -49,11 +49,18 @@
             </a>
         </div>
         <div class="top-social">
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
             <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
+
+
+            @if(Auth::check())
+                <a href="/account"><img style="border-radius: 50%" width="30px" src="{{asset(Auth::user()->foto)}}"/></a>
+            @endif
+            @if(!Auth::check())
+                <a href="/account"><i class="fa fa-user" style="color: #ffffff;"></i></a>
+            @endif
+
         </div>
         <div class="container">
             <div class="nav-menu">
@@ -64,7 +71,7 @@
                         <li><a href="/usadba">Усадьба</a>
                             <ul class="dropdown">
                                 <li><a href="./houses">Дома</a></li>
-                                <li><a href="./meropria">Мероприятия</a></li>
+                                <li><a href="./events">Мероприятия</a></li>
                                 <li><a href="./blog-single.html">Услуги</a></li>
                             </ul>
                         </li>
@@ -85,20 +92,4 @@
 </header>
 <!-- Header End -->
 
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-section set-bg spad" data-setbg="{{asset('Images/img_16.png')}}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb-text">
-                    <h2>О нас</h2>
-                    <div class="breadcrumb-controls">
-                        <a href="/"><i class="fa fa-home"></i> Главная</a>
-                        <span>О нас</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Breadcrumb End -->
+

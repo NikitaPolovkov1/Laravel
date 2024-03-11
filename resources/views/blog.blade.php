@@ -1,7 +1,6 @@
 @include('includes/header')
 <!-- Blog Section Begin -->
 
-
 <section class="blog-section blog-page spad">
     <div class="container">
         <div class="row blog-gird">

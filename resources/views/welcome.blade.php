@@ -39,11 +39,15 @@
             </a>
         </div>
         <div class="top-social">
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
             <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
+            @if(Auth::check())
+                <a href="/account"><img style="border-radius: 50%" width="30px" src="{{asset(Auth::user()->foto)}}"/></a>
+            @endif
+            @if(!Auth::check())
+                <a href="/account"><i class="fa fa-user" style="color: #ffffff;"></i></a>
+            @endif
         </div>
         <div class="container">
             <div class="nav-menu">

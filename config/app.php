@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -182,7 +182,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs::class,
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+
+
 
 ];

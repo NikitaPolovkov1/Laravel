@@ -9,7 +9,6 @@ class GalleryController extends Controller
 {
     function show()
     {
-
         return view('gallery');
     }
 }
