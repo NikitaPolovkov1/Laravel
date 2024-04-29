@@ -10,9 +10,6 @@
                       <p>{!!$post->post_content  !!}</p>
                     </div>
 
-
-
-
                     <div class="blog-tag-share">
                         <div class="tags">
                             @foreach($categories as $category)
@@ -35,13 +32,14 @@
                 <div class="blog-single-sidebar">
                     <div class="bs-latest-news">
                         <h4>Последние новости</h4>
-                        @for($i = 0; $i < 2; $i+=1)
-                            <a href="{{$posts[$i]->post_id}}" class="bl-item set-bg">
-                                <h5>  {{$posts[$i]->post_title}}</h5>
-                                <span>{{$posts[$i]->post_date}}</span>
-                            </a>
 
-                        @endfor
+                        @foreach($posts_lastest as $post)
+                            <a href="{{$post->post_id}}" class="bl-item set-bg">
+                                <h5>  {{$post->post_title}}</h5>
+                                <span>{{$post->post_date}}</span>
+                            </a>
+                        @endforeach
+
                     </div>
 
                 </div>
@@ -52,30 +50,17 @@
                 <div class="recent-news">
                     <h4>Последние новости</h4>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <div class="recent-item set-bg" data-setbg="img/recent-1.jpg">
-                                <a href="#" class="recent-text">
-                                    <div class="categories">Gym & Croosfit</div>
-                                    <h5>Many people sign up for affiliate programs</h5>
-                                </a>
+                        @foreach($posts_lastest as $post)
+
+                            <div class="col-lg-4">
+                                <div class="recent-item set-bg" data-setbg="/{{$post->post_img}}">
+                                    <a href="/blog/{{$post->post_id}}" class="recent-text">
+                                        <div class="categories">{{$post->post_title}}</div>
+                                        <h5>{{$post->post_sub_title}}</h5>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="recent-item set-bg" data-setbg="img/recent-2.jpg">
-                                <a href="#" class="recent-text">
-                                    <div class="categories">Gym & Croosfit</div>
-                                    <h5>Many people sign up for affiliate programs</h5>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="recent-item set-bg" data-setbg="img/recent-3.jpg">
-                                <a href="#" class="recent-text">
-                                    <div class="categories">Gym & Croosfit</div>
-                                    <h5>Many people sign up for affiliate programs</h5>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -84,21 +69,6 @@
 </section>
 <!-- Blog Single Section End -->
 
-<!-- Cta Section Begin -->
-<section class="cta-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cta-text">
-                    <h3>GeT Started Today</h3>
-                    <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>
-                </div>
-                <a href="#" class="primary-btn cta-btn">book now</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Cta Section End -->
 
 <style>
     h1, h2, h3, h4, h5, h6{

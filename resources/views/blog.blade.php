@@ -3,11 +3,26 @@
 
 <section class="blog-section blog-page spad">
     <div class="container">
-        <div class="row blog-gird">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>Блог</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach($categories as $category)
+                <button class="btn btn-dark m-2"><a style="color: #FFF;" href="/blog/category={{$category->category_name}}">{{$category->category_name}}</a></button>
+            @endforeach
+            @if(url()->current() !== "http://127.0.0.1:8000/blog")
+                <button class="btn btn-dark m-2"><a style="color: #FFF;" href="/blog">Все посты</a></button>
+                @endif
+        </div>
+        <div class="row blog-gird mt-5">
             @foreach($posts as $post)
                 <div class="grid-sizer"></div>
                 <div class="col-lg-4 col-md-6 grid-item">
-                    <div class="blog-item large-item set-bg" data-setbg="img/blog/blog-1.jpg">
+                    <div class="blog-item large-item set-bg" data-setbg="/{{$post->post_img}}">
                         <a href="/blog/{{$post->post_id}}" class="blog-text">
                             <div class="categories">{{$post->post_title}}</div>
                             <h5>{{$post->post_sub_title}}</h5>
@@ -16,43 +31,29 @@
                 </div>
             @endforeach
         </div>
+        @if(count($posts) > 3)
         <div class="blog-option">
             <div class="blog-pagination">
-                <a href="#" class="active">1</a>
-                of
-                <a href="#">3</a>
-                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+
+                {{ $posts->onEachSide(1)->links('vendor.pagination.custom') }}
+
             </div>
             <div class="blog-option-right">
-                <div class="blog-result">Showing 1–3 of 12 results</div>
+                <div class="blog-result">Показаны {{$posts->first()->post_id}} - {{$posts->last()->post_id}} из {{count($posts_all)}} постов</div>
                 <div class="show-result">
                     <p>Show:</p>
-                    <select class="show-result-select">
-                        <option value="">09</option>
-                        <option value="">19</option>
-                        <option value="">29</option>
+                    <select class="show-result-select" onchange="changePerPage(this)">
+                        <option value="3" {{ $posts->perPage() == 3 ? 'selected' : '' }}>03</option>
+                        <option value="6" {{ $posts->perPage() == 6 ? 'selected' : '' }}>06</option>
+                        <option value="9" {{ $posts->perPage() == 9 ? 'selected' : '' }}>09</option>
                     </select>
                 </div>
+
             </div>
         </div>
+        @endif
     </div>
 </section>
 <!-- Blog Section End -->
-
-<!-- Cta Section Begin -->
-<section class="cta-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="cta-text">
-                    <h3>GeT Started Today</h3>
-                    <p>New student special! $30 unlimited Gym for the first week anh 50% of our member!</p>
-                </div>
-                <a href="#" class="primary-btn cta-btn">book now</a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Cta Section End -->
 
 @include('includes/footer')

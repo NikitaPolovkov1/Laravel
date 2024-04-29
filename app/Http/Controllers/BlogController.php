@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\House;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -9,23 +10,26 @@ use Illuminate\Support\Facades\DB;
 
 class BlogController extends Controller
 {
-    function show()
+    function show(Request $request)
     {
-        $posts = Post::all();
-        return view('blog', compact('posts'));
+        $perPage = $request->input('perPage', 9);
+        $posts_all = Post::all();
+        $posts = Post::orderBy('created_at', 'desc')->paginate($perPage);
+        $categories = Category::all();
+        return view('blog', compact('posts', 'categories', 'posts_all'));
     }
 
     function show_single($id)
     {
-        $post = Post::where('post_id', $id)->first();
-        $posts = Post::all();
+
         $categories = DB::table('posts')
             ->join('posts_categories', 'posts.post_id', '=', 'posts_categories.post_id')
             ->join('categories', 'posts_categories.category_id', '=', 'categories.category_id')
             ->where('posts.post_id', $id)
             ->select('categories.category_name')
             ->get();
-        return view('blogsingle', compact('post', 'categories', 'posts'));
+        $posts_lastest = Post::orderby('created_at', 'desc')->take(3)->get();
+        return view('blogsingle', compact('post', 'categories', 'posts_lastest'));
     }
 
     public function showPostsByCategory($categoryName)
@@ -43,7 +47,8 @@ class BlogController extends Controller
             abort(404);
         }
 
-        return view('blog', compact('posts' ));
+        $categories = Category::all();
+        return view('blog', compact('posts',  'categories'));
 
     }
 }

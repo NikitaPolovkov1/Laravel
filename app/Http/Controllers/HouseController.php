@@ -17,8 +17,11 @@ class HouseController extends Controller
             ->select('houses.houseID', 'houses.name', 'dates.dateID', 'dates.start_date', 'dates.end_date')
             ->get();
 
-        return view('house', compact('house'), compact('result'));
+        $houses = House::orderby('created_at', 'desc')->take(2)->get();
+        return view('house', compact('house', 'houses'), compact('result'));
     }
+
+
 
 
 }

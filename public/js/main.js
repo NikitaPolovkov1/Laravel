@@ -21,19 +21,19 @@
         /*------------------
             Gallery filter
         --------------------*/
-        $('.gallery-controls ul li').on('click', function() {
+        $('.gallery-controls ul li').on('click', function () {
             $('.gallery-controls ul li').removeClass('active');
             $(this).addClass('active');
         });
-        if($('.gallery-filter').length > 0 ) {
+        if ($('.gallery-filter').length > 0) {
             var containerEl = document.querySelector('.gallery-filter');
             var mixer = mixitup(containerEl);
         }
 
         $('.blog-gird').masonry({
-			itemSelector: '.grid-item',
-			columnWidth: '.grid-sizer',
-		});
+            itemSelector: '.grid-item',
+            columnWidth: '.grid-sizer',
+        });
 
     });
 
@@ -56,10 +56,10 @@
     /*------------------
 		Menu Hover
 	--------------------*/
-    $(".header-section .nav-menu .mainmenu ul li").on('mousehover', function() {
+    $(".header-section .nav-menu .mainmenu ul li").on('mousehover', function () {
         $(this).addClass('active');
     });
-    $(".header-section .nav-menu .mainmenu ul li").on('mouseleave', function() {
+    $(".header-section .nav-menu .mainmenu ul li").on('mouseleave', function () {
         $('.header-section .nav-menu .mainmenu ul li').removeClass('active');
     });
 
@@ -82,7 +82,7 @@
     /*------------------
         Testimonial Slider
     --------------------*/
-   $(".testimonial-slider").owlCarousel({
+    $(".testimonial-slider").owlCarousel({
         loop: true,
         margin: 0,
         nav: false,
@@ -113,23 +113,34 @@
     /*------------------
        Timetable Filter
     --------------------*/
-    $('.timetable-controls ul li').on('click', function() {
+    $('.timetable-controls ul li').on('click', function () {
         var tsfilter = $(this).data('tsfilter');
         $('.timetable-controls ul li').removeClass('active');
         $(this).addClass('active');
-        
-        if(tsfilter == 'all') {
+
+        if (tsfilter == 'all') {
             $('.classtime-table').removeClass('filtering');
             $('.ts-item').removeClass('show');
         } else {
             $('.classtime-table').addClass('filtering');
         }
-        $('.ts-item').each(function(){
+        $('.ts-item').each(function () {
             $(this).removeClass('show');
-            if($(this).data('tsmeta') == tsfilter) {
+            if ($(this).data('tsmeta') == tsfilter) {
                 $(this).addClass('show');
             }
         });
     });
 
 })(jQuery);
+
+function changePerPage(select) {
+    var perPage = select.value;
+    var url = new URL(window.location.href);
+    url.searchParams.set('perPage', perPage);
+    window.location.href = url.toString();
+}
+
+function show_bron(){
+
+}

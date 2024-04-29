@@ -21,8 +21,8 @@
 
 <!-- Breadcrumb End -->
 
-<section class="price-section spad set-bg"  style="background-color: black">
-    <div class="container">
+<section class="price-section spad set-bg"  style="background-color: #FFF">
+    <div class=" container-fluid" style="max-width: 1400px">
         <div class="dropdown mb-3" style="text-align: end">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Сортировать
@@ -50,7 +50,7 @@
                                 </div>
                             </section>
                         </div>
-                        <div class="" style="padding: 20px">
+                        <div class="" style="padding: 20px; background-color: #f5f5f5; min-height: 409px;">
                             <h2 style="padding: 20px 0px; text-align: start " >{{$house->name}}</h2>
                             <div class="" style="text-align: start">
                                 <p>Цена: {{$house->price_at_day}}BYN за ночь</p>

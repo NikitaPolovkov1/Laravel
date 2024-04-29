@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Activitar | Template</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
@@ -52,6 +52,7 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-search"></i></a>
 
 
             @if(Auth::check())
@@ -76,12 +77,7 @@
                             </ul>
                         </li>
                         <li><a href="/gallery">Фотогаллерея</a></li>
-                        <li><a href="/blog">Блог</a>
-                            <ul class="dropdown">
-                                <li><a href="./about-us.html">About Us</a></li>
-                                <li><a href="./blog-single.html">Blog Details</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="/blog">Блог</a></li>
                         <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </nav>
