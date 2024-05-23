@@ -21,7 +21,7 @@ class BlogController extends Controller
 
     function show_single($id)
     {
-
+        $post = Post::where('post_id', $id)->first();
         $categories = DB::table('posts')
             ->join('posts_categories', 'posts.post_id', '=', 'posts_categories.post_id')
             ->join('categories', 'posts_categories.category_id', '=', 'categories.category_id')

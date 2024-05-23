@@ -3,7 +3,9 @@
 use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\MediaLibraryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,36 +48,33 @@ Route::get('/account', [App\Http\Controllers\AccountController::class, 'index'])
 Auth::routes();
 
 Route::get('/search', 'SearchController@search')->name('search');
-
-
-
-
-
 Route::post('save-lead', 'LeadController@store')->name('save-lead');
-
-
 Route::get("email", [PHPMailerController::class, "email"])->name("email");
 Route::post("send-email", [PHPMailerController::class, "composeEmail"])->name("send-email");
-
-
 Route::get('/account', [App\Http\Controllers\AccountController::class, 'index'])->name('account');
-
-Route::get('/admin', "AdminController@show");
-
-Route::get('/generate-report', [App\Http\Controllers\UserReportController::class, 'generateReport'])->name('generate.report');
-Route::get('/generate-report-lead', [App\Http\Controllers\UserReportController::class, 'generateReportLead'])->name('generate.report.lead');
-Route::get('/generate-report-form', function () {
-    return view('report_form');
-});
-
-Route::get('/generate-report-form-lead', function () {
-    return view('report_form_lead');
-});
-
-
-
 Route::post('/upload', [UploadController::class, 'upload'])->name('send.upload');
-
-
-
 Route::get('/send_mail', 'MailController@send');
+
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
+});
+
+
+
+
+Route::get('/admin/login', [AdminAuthController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminAuthController::class, 'login']);
+Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admin.logout');
+
+
+Route::get('/admin/houses', [AdminController::class, 'houses'])->name('admin.houses');
+Route::get('/admin/addhouse', [AdminController::class, 'addhouse'])->name('admin.houses');
+
+Route::post('/admin/storehouse', [AdminController::class, 'storeHouse'])->name('admin.store');
+
+Route::get('/admin/media-library', [MediaLibraryController::class, 'index'])->name('media.library');
+
+Route::post('/admin/media-library/upload', [MediaLibraryController::class, 'upload'])->name('media.library.upload');
+

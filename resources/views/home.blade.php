@@ -69,7 +69,9 @@
                 <div class="row p-3">
 
                     @if(Auth::user()->bookings_last)
-                        @foreach(json_decode(Auth::user()->bookings_last, true) as $booking)
+                        @php
+                            $booking = json_decode(Auth::user()->bookings_last, true);
+                        @endphp
                             <div class="card mt-2 mr-3">
                                         <div class="card-body">
                                             <p>Номер телефона: {{ $booking['phone_number'] }}</p>
@@ -85,7 +87,7 @@
 
                                         </div>
                             </div>
-                        @endforeach
+
                     @endif
 
 

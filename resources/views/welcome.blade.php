@@ -40,9 +40,8 @@
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-youtube-play"></i></a>
             <a href="#"><i class="fa fa-instagram"></i></a>
-            <button id="search_btn">
-            <i class="fa fa-search"></i>
-            </button>
+            <a id="search_btn" style="background-color: transparent; border: none"><i class="fa fa-search" style="color: #FFF"></i>
+            </a>
             @if(Auth::check())
                 <a href="/account"><img style="border-radius: 50%" width="30px" src="{{asset(Auth::user()->foto)}}"/></a>
             @endif

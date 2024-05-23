@@ -54,19 +54,15 @@ class LeadController extends Controller
             'nights_count' => $lead->nights_count,
             'total_price' => $lead->total_price,
         ];
-
-//        $currentBookings = json_decode(Auth::user()->bookings_last, true) ?? [];
-//
-//        $currentBookings[] = $bookingData;
-//
-//        $updatedBookingsJson = json_encode(['bookings' => $currentBookings]);
+        $updatedBookingsJson = json_encode($bookingData);
 
 
         $user = new User();
         $user->email = $request->email;
         $user->name = $request->full_name;
         $user->password = $password;
-//        $user->bookings_last = $updatedBookingsJson;
+        $user->phone = $request->phone_number;
+        $user->bookings_last = $updatedBookingsJson;
 
         $user->save();
 
