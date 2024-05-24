@@ -42,13 +42,17 @@
                             </div>
                         </nav>
                     </div>
-                    <div class="sb-sidenav-menu-heading">Addons</div>
+                    <div class="sb-sidenav-menu-heading">Общие</div>
                     <a class="nav-link" href="/admin/media-library"
                     ><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                     МедиаБиблиотека</a
-                    ><a class="nav-link" href="tables.html"
+                    ><a class="nav-link" href="/admin/addcategory"
                     ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Tables</a
+                        Категории</a
+                    >
+                    <a class="nav-link" href="/admin/blog"
+                    ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        Блог</a
                     >
                 </div>
             </div>

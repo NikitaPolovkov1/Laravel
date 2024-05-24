@@ -53,72 +53,43 @@
                                                 <table class="table align-items-center mb-0">
                                                     <thead>
                                                     <tr>
-                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                            Дом
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Имя заказчика
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Номер телефона
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Электронная почта
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Дата заезда
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Дата выезда
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Количество взрослых
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Количество детей
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Тариф
-                                                        </th>
-                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Общая стоимость
-                                                        </th>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Дом</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Имя заказчика</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Номер телефона</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Электронная почта</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Дата заезда</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Дата выезда</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Количество взрослых</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Количество детей</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Тариф</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Общая стоимость</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Статус</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
                                                     @foreach($leads as $lead)
                                                         <tr>
+                                                            <td>{{$lead->house_name}}</td>
+                                                            <td>{{$lead->full_name}}</td>
+                                                            <td>{{$lead->phone_number}}</td>
+                                                            <td>{{$lead->email}}</td>
+                                                            <td>{{$lead->arrival_date}}</td>
+                                                            <td>{{$lead->departure_date}}</td>
+                                                            <td>{{$lead->children_count}}</td>
+                                                            <td>{{$lead->adult_count}}</td>
+                                                            <td>{{$lead->tariff}}</td>
+                                                            <td>{{$lead->total_price}}</td>
                                                             <td>
-                                                                {{$lead->house_name}}
+                                                                <form action="{{ route('admin.updateLeadStatus', $lead->id) }}" method="POST">
+                                                                    @csrf
+                                                                    @method('PATCH')
+                                                                    <select name="status" class="form-control" onchange="this.form.submit()">
+                                                                        <option value="На рассмотрении" {{ $lead->status == 'На рассмотрении' ? 'selected' : '' }}>На рассмотрении</option>
+                                                                        <option value="Одобрено" {{ $lead->status == 'Одобрено' ? 'selected' : '' }}>Одобрено</option>
+                                                                        <option value="Отклонено" {{ $lead->status == 'Отклонено' ? 'selected' : '' }}>Отклонено</option>
+                                                                    </select>
+                                                                </form>
                                                             </td>
-                                                            <td>
-                                                                {{$lead->full_name}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->phone_number}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->email}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->arrival_date}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->departure_date}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->children_count}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->adult_count}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->tariff}}
-                                                            </td>
-                                                            <td>
-                                                                {{$lead->total_price}}
-                                                            </td>
-
                                                         </tr>
                                                     @endforeach
                                                     </tbody>
@@ -128,6 +99,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>

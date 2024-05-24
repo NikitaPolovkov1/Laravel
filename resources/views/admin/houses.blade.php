@@ -94,11 +94,11 @@
                                                             </td>
 
                                                             <td class="align-middle">
-                                                                <a href="/admin/addhouse/{{$house->houseID}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                                                <a href="/admin/edithouse/{{$house->houseID}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                                                     Изменить
                                                                 </a>
-                                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                                                   Удалить
+                                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs delete-house" data-toggle="tooltip" data-original-title="Delete house" data-house-id="{{$house->houseID}}">
+                                                                    Удалить
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -146,6 +146,28 @@
 
 
 
+
+
+<script>
+    $(document).ready(function(){
+        $('.delete-house').click(function(e){
+            e.preventDefault();
+            var houseId = $(this).data('house-id');
+            if(confirm("Вы уверены, что хотите удалить этот дом?")) {
+                $.ajax({
+                    url: '/admin/deletehouse/' + houseId,
+                    type: 'DELETE',
+                    data: {
+                        "_token": "{{ csrf_token() }}"
+                    },
+                    success: function(data) {
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 
 

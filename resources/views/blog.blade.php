@@ -22,7 +22,7 @@
             @foreach($posts as $post)
                 <div class="grid-sizer"></div>
                 <div class="col-lg-4 col-md-6 grid-item">
-                    <div class="blog-item large-item set-bg" data-setbg="/{{$post->post_img}}">
+                    <div class="blog-item large-item set-bg" data-setbg="{{$post->post_img}}">
                         <a href="/blog/{{$post->post_id}}" class="blog-text">
                             <div class="categories">{{$post->post_title}}</div>
                             <h5>{{$post->post_sub_title}}</h5>

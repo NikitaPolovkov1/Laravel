@@ -34,9 +34,8 @@ class UploadController extends Controller
 
                     // Сохраняем изменения в базе данных
                     $user->save();
-
+                    return redirect()->back()->with('success', 'Пост успешно обновлен!');
                     // Возвращаем сообщение об успешной загрузке и путь к файлу
-                    return response()->json(['message' => 'Файл успешно загружен', 'file_path' => asset($path)], 200);
                 } else {
                     // Возвращаем сообщение об ошибке при загрузке файла
                     return response()->json(['message' => 'Ошибка при загрузке файла'], 400);
@@ -49,5 +48,6 @@ class UploadController extends Controller
             // Возвращаем сообщение об ошибке при отсутствии авторизации пользователя
             return response()->json(['message' => 'Пользователь не авторизован'], 401);
         }
+
     }
 }

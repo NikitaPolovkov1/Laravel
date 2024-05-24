@@ -25,7 +25,7 @@
                                 @csrf
                                 <div class="input-group mb-3">
                                     <input type="file" class="form-control" name="file">
-                                    <button type="submit" class="btn btn-primary">Загрузить файл</button>
+                                    <button type="submit" id="uploadButton" class="btn btn-primary">Загрузить файл</button>
                                 </div>
                             </form>
 
@@ -70,37 +70,65 @@
 
                     @if(Auth::user()->bookings_last)
                         @php
-                            $booking = json_decode(Auth::user()->bookings_last, true);
+                            $bookings = json_decode(Auth::user()->bookings_last, true);
                         @endphp
-                            <div class="card mt-2 mr-3">
-                                        <div class="card-body">
-                                            <p>Номер телефона: {{ $booking['phone_number'] }}</p>
-                                            <p>Электронная почта: {{ $booking['email'] }}</p>
-                                            <p>Дата прибытия: {{ $booking['arrival_date'] }}</p>
-                                            <p>Дата отъезда: {{ $booking['departure_date'] }}</p>
-                                            <p>Количество детей: {{ $booking['children_count'] }}</p>
-                                            <p>Количество взрослых: {{ $booking['adult_count'] }}</p>
-                                            <p>Тариф: {{ $booking['tariff'] }}</p>
-                                            <p>Цена за день: {{ $booking['price_at_day'] }}</p>
-                                            <p>Количество ночей: {{ $booking['nights_count'] }}</p>
-                                            <p>Общая цена: {{ $booking['total_price'] }}</p>
-
-                                        </div>
-                            </div>
-
+                        @if(is_array($bookings))
+                            @foreach($bookings as $key => $booking)
+                                <div class="card mt-2 mr-3">
+                                    <div class="card-body">
+                                        <p>Номер телефона: {{ $booking['phone_number'] }}</p>
+                                        <p>Электронная почта: {{ $booking['email'] }}</p>
+                                        <p>Дата прибытия: {{ $booking['arrival_date'] }}</p>
+                                        <p>Дата отъезда: {{ $booking['departure_date'] }}</p>
+                                        <p>Количество детей: {{ $booking['children_count'] }}</p>
+                                        <p>Количество взрослых: {{ $booking['adult_count'] }}</p>
+                                        <p>Тариф: {{ $booking['tariff'] }}</p>
+                                        <p>Цена за день: {{ $booking['price_at_day'] }}</p>
+                                        <p>Количество ночей: {{ $booking['nights_count'] }}</p>
+                                        <p>Общая цена: {{ $booking['total_price'] }}</p>
+                                        <div class="alert alert-warning">Статус заявки: {{ $booking }}</div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <p>Нет данных о бронировании</p>
+                        @endif
+                    @else
+                        <p>Нет данных о бронировании</p>
                     @endif
 
 
+
                 </div>
+
+
+                <form action="{{ route('updateLogin') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="new_login">Новый логин</label>
+                        <input type="text" class="form-control" id="new_login" name="new_login" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Изменить логин</button>
+                </form>
+
+
+                <form action="{{ route('updatePassword') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="current_password">Текущий пароль</label>
+                        <input type="password" class="form-control" id="current_password" name="current_password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new_password">Новый пароль</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Изменить пароль</button>
+                </form>
+
             </div>
         </div>
     </div>
 </section>
-
-
-
-
-
 
 
 

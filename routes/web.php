@@ -23,6 +23,7 @@ Route::get('/houses/{id}', 'HouseController@show')->name('house');
 Route::get('/houses&price={price}', 'HousesController@showByPrice')->name('house');
 
 
+
 Route::get('/usadba', 'UsadbaController@show');
 Route::get('/gallery', 'GalleryController@show');
 Route::get('/blog', 'BlogController@show');
@@ -56,6 +57,10 @@ Route::post('/upload', [UploadController::class, 'upload'])->name('send.upload')
 Route::get('/send_mail', 'MailController@send');
 
 
+Route::post('/update-login', 'UserController@updateLogin')->name('updateLogin');
+Route::post('/update-password', 'UserController@updatePassword')->name('updatePassword');
+
+
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('dashboard');
@@ -71,10 +76,66 @@ Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admi
 
 Route::get('/admin/houses', [AdminController::class, 'houses'])->name('admin.houses');
 Route::get('/admin/addhouse', [AdminController::class, 'addhouse'])->name('admin.houses');
+Route::get('/admin/edithouse/{id}', [AdminController::class, 'edithouse'])->name('admin.edithouse');
+Route::delete('/admin/deletehouse/{id}', [AdminController::class, 'destroy'])->name('admin.deletehouse');
+
+
+
+
+
+Route::get('admin/addcategory', [AdminController::class, 'editcat'])->name('admin.editcat');
+Route::post('admin/savecategory', [AdminController::class, 'storecat'])->name('admin.categories.store');
+Route::delete('/admin/categories/{id}', [AdminController::class, 'destroycat'])->name('admin.categories.destroy');
+
+
+Route::get('admin/blog', [AdminController::class, 'blog'])->name('admin.editcat');
+Route::get('admin/addpost', [AdminController::class, 'addpost'])->name('admin.addpost');
+Route::post('admin/storepost', [AdminController::class, 'storepost'])->name('admin.storepost');
+
+
+// Маршрут для отображения формы редактирования поста
+Route::get('/admin/editpost/{id}', [AdminController::class, 'editpost'])->name('admin.editpost');
+
+// Маршрут для сохранения изменений поста
+Route::post('/admin/updatepost/{id}', [AdminController::class, 'updatepost'])->name('admin.updatepost');
+// Маршрут для удаления поста
+Route::delete('/admin/deletepost/{id}', [AdminController::class, 'destroypost'])->name('admin.deletepost');
+
+
+Route::patch('/admin/leads/{id}/status', [AdminController::class, 'updatelead'])->name('admin.updateLeadStatus');
+
+
+
+
 
 Route::post('/admin/storehouse', [AdminController::class, 'storeHouse'])->name('admin.store');
+Route::post('/admin/storehouseedited/{id}', [AdminController::class, 'storeHouseEdit'])->name('admin.update');
 
 Route::get('/admin/media-library', [MediaLibraryController::class, 'index'])->name('media.library');
 
 Route::post('/admin/media-library/upload', [MediaLibraryController::class, 'upload'])->name('media.library.upload');
+
+
+
+
+Route::get('/admin/services', [AdminController::class, 'services'])->name('admin.services');
+Route::get('/admin/services/create', [AdminController::class, 'servicescreate'])->name('admin.services.create');
+
+Route::post('/admin/services', [AdminController::class, 'storeservice'])->name('admin.services.store');
+
+Route::delete('/admin/services/{service}', [AdminController::class, 'destroyservice'])->name('admin.services.destroy');
+
+
+
+use App\Http\Controllers\ServiceController;
+
+Route::get('/services', [ServiceController::class, 'index']);
+
+Route::get('/services&price={price}', 'ServiceController@showByPrice')->name('house');
+
+Route::post('/service-lead', [ServiceController::class, 'storeLead'])->name('service-lead.store');
+
+Route::get('/services', [ServiceController::class, 'index']);
+
+
 

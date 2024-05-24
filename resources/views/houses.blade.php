@@ -20,63 +20,122 @@
 </section>
 
 <!-- Breadcrumb End -->
-
-<section class="price-section spad set-bg"  style="background-color: #FFF">
-    <div class=" container-fluid" style="max-width: 1400px">
-        <div class="dropdown mb-3" style="text-align: end">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Сортировать
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/houses&price=asc">Сортировать по цене вверх</a>
-                <a class="dropdown-item" href="/houses&price=desc">Сортировать по цене вниз</a>
-            </div>
-        </div>
+<section class="price-section spad set-bg" style="background-color: #FFF">
+    <div class="container-fluid" style="max-width: 1400px">
         <div class="row">
-
-
-
-            @foreach($houses as $house)
-                <div class="col-lg-6">
-                    <div class="single-price-plan"  style="padding-top: 0">
-                        <div class="about-img">
-                            <section class="hero-section">
-                                <div class="hero-items owl-carousel">
-
-                                    @foreach(json_decode($house->images) as $image)
-                                        <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{asset($image)}}">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </section>
-                        </div>
-                        <div class="" style="padding: 20px; background-color: #f5f5f5; min-height: 409px;">
-                            <h2 style="padding: 20px 0px; text-align: start " >{{$house->name}}</h2>
-                            <div class="" style="text-align: start">
-                                <p>Цена: {{$house->price_at_day}}BYN за ночь</p>
+            <!-- Левая часть с фильтрами в рамке с заголовком -->
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Фильтры
+                    </div>
+                    <div class="card-body">
+                        <form action="/houses" method="GET">
+                            <!-- Ползунок для фильтрации по цене -->
+                            <div class="form-group">
+                                <label for="price-range">Диапазон цены:</label>
+                                <div id="price-range"></div>
+                                <p>Цена: от <span id="min-price-display">BYN{{ request()->get('min_price', $minPrice) }}</span> до <span id="max-price-display">BYN{{ request()->get('max_price', $maxPrice) }}</span></p>
+                                <input type="hidden" id="min-price" name="min_price" value="{{ request()->get('min_price', $minPrice) }}">
+                                <input type="hidden" id="max-price" name="max_price" value="{{ request()->get('max_price', $maxPrice) }}">
                             </div>
-                            <ul class="attributes_room">
-                                @foreach(json_decode($house->attributes) as $house_attribute)
-                                    <li style="display: flex">
-                                        <img style="width: 20px" src="{{ $house_attribute->attribute1}}" alt="">
-                                        <p>{{ $house_attribute->attribute2 }}</p>
-                                    </li>
-                                @endforeach
-
-                            </ul>
-                            <p style="text-align: start">{{$house->description}}</p>
-                            <br>
-                            <!-- Add onClick event handler to call MyFunc() -->
-                            <a href="/houses/{{$house->houseID}}" class="primary-btn price-btn" >Забронировать</a>
-                        </div>
+                            <div class="form-group">
+                                <label for="start-date">Дата начала:</label>
+                                <input type="date" class="form-control" id="start-date" name="start_date" value="{{ request()->get('start_date') }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="end-date">Дата окончания:</label>
+                                <input type="date" class="form-control" id="end-date" name="end_date" value="{{ request()->get('end_date') }}">
+                            </div>
+                            <!-- Кнопка для отправки формы -->
+                            <button type="submit" class="btn btn-primary">Применить фильтры</button>
+                        </form>
                     </div>
                 </div>
-            @endforeach
-            <!-- End of Room Blocks -->
+            </div>
+            <!-- Правая часть с кнопками сортировки и карточками домов -->
+            <div class="col-md-9">
+                <!-- Кнопки сортировки -->
+                <div class="dropdown mb-3" style="text-align: end">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Сортировать
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/houses?sort=price_asc">Сортировать по цене вверх</a>
+                        <a class="dropdown-item" href="/houses?sort=price_desc">Сортировать по цене вниз</a>
+                    </div>
+                </div>
+                <!-- Карточки домов -->
+                <div class="row">
+                    @foreach($houses as $house)
+                        <div class="col-lg-6">
+                            <div class="single-price-plan" style="padding-top: 0">
+                                <div class="about-img">
+                                    <section class="hero-section">
+                                        <div class="hero-items owl-carousel">
+                                            @foreach(json_decode($house->images) as $image)
+                                                <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{ asset($image) }}">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="" style="padding: 20px; background-color: #f5f5f5; min-height: 409px;">
+                                    <h2 style="padding: 20px 0px; text-align: start">{{ $house->name }}</h2>
+                                    <div class="" style="text-align: start">
+                                        <p>Цена: {{ $house->price_at_day }} BYN за ночь</p>
+                                    </div>
+                                    <ul class="attributes_room">
+                                        @foreach(json_decode($house->attributes) as $house_attribute)
+                                            <li style="display: flex">
+                                                <img style="width: 20px" src="{{ $house_attribute->attribute1 }}" alt="">
+                                                <p>{{ $house_attribute->attribute2 }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <p style="text-align: start">{{ $house->description }}</p>
+                                    <br>
+                                    <a href="/houses/{{ $house->houseID }}" class="primary-btn price-btn">Забронировать</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <!-- End of Room Blocks -->
+                </div>
+            </div>
         </div>
-
     </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+<script>
+    // Инициализация ползунка для цены
+    var priceSlider = document.getElementById('price-range');
+    noUiSlider.create(priceSlider, {
+        start: [{{ request()->get('min_price', $minPrice) }}, {{ request()->get('max_price', $maxPrice) }}],
+        connect: true,
+        range: {
+            'min': {{ $minPrice }},
+            'max': {{ $maxPrice }}
+        },
+        tooltips: [true, true],
+        format: {
+            to: function (value) {
+                return value.toFixed(0);
+            },
+            from: function (value) {
+                return Number(value);
+            }
+        }
+    });
+
+    priceSlider.noUiSlider.on('update', function (values, handle) {
+        document.getElementById('min-price-display').innerText = values[0];
+        document.getElementById('max-price-display').innerText = values[1];
+        document.getElementById('min-price').value = values[0];
+        document.getElementById('max-price').value = values[1];
+    });
+</script>
+
 
 
 <div class=" threed_cont">
