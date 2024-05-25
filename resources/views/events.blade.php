@@ -1,195 +1,242 @@
-@include('includes.header')
-<section class="price-section spad set-bg"  style="background-color: black">
-    <div class="container">
-        <div class="row">
-            @foreach($types as $type)
-                <button class="btn btn-dark m-2"><a style="color: #FFF;" href="/event/category={{$type->name}}">{{$type->name}}</a></button>
-            @endforeach
-        </div>
-        <div class="row">
-            @foreach($events as $event)
-                <div class="col-lg-4">
-                    <div class="single-price-plan"  style="padding-top: 0; min-height: 569px">
-                        <div class="about-img">
-                            <section class="hero-section">
-                                <div class="hero-items owl-carousel">
+ @include('includes.header')
 
-                                    @foreach(json_decode($event->photos) as $image)
-                                        <div class="single-hero-item set-bg" style="max-height: 200px" data-setbg="{{asset($image)}}">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </section>
-                        </div>
-                        <div class="" style="padding: 20px">
-                            <h2 style="padding: 20px 0px; text-align: start " >{{$event->name}}</h2>
-                            <div class="" style="text-align: start">
-                                <p>Цена: от {{$event->price}}BYN за ночь</p>
+        <section class="breadcrumb-section set-bg spad" data-setbg="{{asset('Images/img_20.png')}}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb-text">
+                            <h2>Услуги</h2>
+                            <div class="breadcrumb-controls">
+                                <a href="/"><i class="fa fa-home"></i> Главная</a>
+                                <a href="/usadba">Усадьба</a>
+                                <span>услуги</span>
                             </div>
-
-                            <p style="text-align: start">{{$event->description}}</p>
-                            <br>
-                            <!-- Add onClick event handler to call MyFunc() -->
-                            <a href="/events/{{$event->id}}" class="primary-btn price-btn" onClick="MyFunc(this)">Заказать</a>
                         </div>
                     </div>
                 </div>
-            @endforeach
+            </div>
+        </section>
+        <section class="price-section spad set-bg" style="background-color: #FFF">
+            <div class="container-fluid" style="max-width: 1400px">
+{{--                <div class="row">--}}
+{{--                    @foreach($types as $type)--}}
+{{--                        <button class="btn btn-dark m-2"><a style="color: #FFF;" href="/event/category={{$type->name}}">{{$type->name}}</a></button>--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+                <div class="row">
+                    <!-- Левая часть с фильтрами и кнопками -->
+                    <div class="col-md-3 mt-5">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                Фильтры
+                            </div>
+                            <div class="card-body">
+                                <form action="/services" method="GET">
+                                    <!-- Ползунок для фильтрации по цене -->
+                                    <div class="form-group">
+                                        <label for="price-range">Диапазон цены:</label>
+                                        <div id="price-range"></div>
+                                        <p>Цена: от <span id="min-price-display">${{ request()->get('min_price', $minPrice) }}</span> до <span id="max-price-display">${{ request()->get('max_price', $maxPrice) }}</span></p>
+                                        <input type="hidden" id="min-price" name="min_price" value="{{ request()->get('min_price', $minPrice) }}">
+                                        <input type="hidden" id="max-price" name="max_price" value="{{ request()->get('max_price', $maxPrice) }}">
+                                    </div>
+                                    <!-- Ползунок для фильтрации по времени -->
+                                    <div class="form-group">
+                                        <label for="hours-range">Диапазон времени (часы):</label>
+                                        <div id="hours-range"></div>
+                                        <p>Время: от <span id="min-hours-display">{{ request()->get('min_hours', $minHours) }} часа</span> до <span id="max-hours-display">{{ request()->get('max_hours', $maxHours) }} часа</span></p>
+                                        <input type="hidden" id="min-hours" name="min_hours" value="{{ request()->get('min_hours', $minHours) }}">
+                                        <input type="hidden" id="max-hours" name="max_hours" value="{{ request()->get('max_hours', $maxHours) }}">
+                                    </div>
+                                    <!-- Кнопка для отправки формы -->
+                                    <button type="submit" class="btn btn-primary">Применить фильтры</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Правая часть с кнопками сортировки и карточками услуг -->
+                    <div class="col-md-9">
+                        <!-- Кнопки сортировки -->
+                        <div class="dropdown mb-3" style="text-align: end">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Сортировать
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/services?sort=price_asc">Сортировать по цене вверх</a>
+                                <a class="dropdown-item" href="/services?sort=price_desc">Сортировать по цене вниз</a>
+                                <a class="dropdown-item" href="/services?sort=hours_asc">Сортировать по времени вверх</a>
+                                <a class="dropdown-item" href="/services?sort=hours_desc">Сортировать по времени вниз</a>
+                            </div>
+                        </div>
+                        <!-- Карточки услуг -->
+                        <div class="row">
+                            @foreach($events as $event)
+                                <div class="col-md-4">
+                                    <div class="card mb-4">
+                                        @if($event->image)
+                                            <img src="{{ $event->image }}" class="card-img-top" alt="{{ $event->name }}">
+                                        @endif
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ $event->name }}</h5>
+                                            <p class="card-text">{{ $event->description }}</p>
+                                            <p class="card-text">Цена: BYN {{ $event->price }}</p>
+                                            <p class="card-text">Время: {{ $event->hours }} часа</p>
+                                            <!-- Кнопка вызова модального окна -->
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingModal" data-service="{{ $event->name }}">
+                                                Заказать
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.7.0/nouislider.min.js"></script>
+        <script>
+            // Инициализация ползунка для цены
+            var priceSlider = document.getElementById('price-range');
+            noUiSlider.create(priceSlider, {
+                start: [{{ request()->get('min_price', $minPrice) }}, {{ request()->get('max_price', $maxPrice) }}],
+                connect: true,
+                range: {
+                    'min': {{ $minPrice }},
+                    'max': {{ $maxPrice }}
+                },
+                tooltips: [true, true],
+                format: {
+                    to: function (value) {
+                        return value.toFixed(0);
+                    },
+                    from: function (value) {
+                        return Number(value);
+                    }
+                }
+            });
+
+            priceSlider.noUiSlider.on('update', function (values, handle) {
+                document.getElementById('min-price-display').innerText = '$' + values[0];
+                document.getElementById('max-price-display').innerText = '$' + values[1];
+                document.getElementById('min-price').value = values[0];
+                document.getElementById('max-price').value = values[1];
+            });
+
+            // Инициализация ползунка для времени
+            var hoursSlider = document.getElementById('hours-range');
+            noUiSlider.create(hoursSlider, {
+                start: [{{ request()->get('min_hours', $minHours) }}, {{ request()->get('max_hours', $maxHours) }}],
+                connect: true,
+                range: {
+                    'min': {{ $minHours }},
+                    'max': {{ $maxHours }}
+                },
+                tooltips: [true, true],
+                format: {
+                    to: function (value) {
+                        return value.toFixed(0);
+                    },
+                    from: function (value) {
+                        return Number(value);
+                    }
+                }
+            });
+
+            hoursSlider.noUiSlider.on('update', function (values, handle) {
+                document.getElementById('min-hours-display').innerText = values[0] + ' часа';
+                document.getElementById('max-hours-display').innerText = values[1] + ' часа';
+                document.getElementById('min-hours').value = values[0];
+                document.getElementById('max-hours').value = values[1];
+            });
+        </script>
+
+
+
+
+
+
+        <!-- Модальное окно -->
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bookingModalLabel">Бронирование услуги</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bookingForm">
+                            <div class="form-group">
+                                <label for="serviceName">Название услуги</label>
+                                <input type="text" class="form-control" id="serviceName" name="serviceName" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Ваш email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Ваш телефон</label>
+                                <input type="text" class="form-control" id="phone" name="phone" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Забронировать</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
-
-
-<div class=" threed_cont">
-    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare ante justo, at placerat ante sagittis at. Nunc laoreet consequat ligula vitae ornare. Nam hendrerit elit urna, id tristique nisl aliquet pharetra. Proin sit amet nisl dui. Donec turpis mauris, convallis ultricies vestibulum et, auctor id eros. Aenean neque lectus, rutrum nec massa posuere, varius ultricies risus. Sed eleifend neque mauris, eu sagittis nulla ullamcorper non. Etiam luctus tristique felis, vitae sollicitudin felis varius et. Aenean vitae libero nec dolor tempor facilisis vitae vitae lacus. Morbi tristique pellentesque velit id sodales. Etiam in dapibus ipsum, ac suscipit tellus. Maecenas vel urna a tellus venenatis blandit vel in felis. Maecenas molestie lacinia ex eget interdum. Nulla facilisi. Praesent mi lorem, venenatis vel urna a, ullamcorper interdum lectus. Maecenas justo ante, gravida at nulla ac, consectetur rutrum leo. </div>
-    <canvas class="webgl"></canvas>
-    <a class="close_threed" onclick="MyFunc3()"><img src="{{asset('Icons/close.png')}}" alt=""></a>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
-<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
 
 
 
 
-<script>
-    // Получить данные из атрибута data-rooms
-    var roomsData = document.getElementById('room-data').getAttribute('data-rooms');
-    var rooms = JSON.parse(roomsData)
-</script>
 
+        <!-- Скрипты -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+        <script>
+            $('#bookingModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget); // Кнопка, которая вызвала модальное окно
+                var serviceName = button.data('service'); // Извлечение информации из атрибута data-service
+                var modal = $(this);
+                modal.find('.modal-body #serviceName').val(serviceName);
+            });
 
+            $('#bookingForm').submit(function(event) {
+                event.preventDefault();
 
-<style>
-    .form_popup_info{
-        display: none;
-    }
+                var formData = {
+                    service_name: $('#serviceName').val(),
+                    name: $('#name').val(),
+                    email: $('#email').val(),
+                    phone: $('#phone').val(),
+                    _token: '{{ csrf_token() }}'
+                };
 
-    .popup_back{
-        display: none;
-    }
-    .popup_back_active{
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 101;
-    }
-    .active_popup{
-        display: block;
-        position: fixed;
-        top: 50%;
-        right: 25%;
-        transform: translate(-50%, -50%);
-        padding-top: 100px;
-        width: 100%;
-        max-width: 1200px;
-        height: 100%;
-        z-index: 104;
-    }
-
-
-    .checkout_form{
-        width: 800px;
-        height: 700px;
-        border-radius: 30px;
-        position: fixed;
-        right: -1000px;
-        top: 90px;
-        z-index: 100;
-        background-color: #FFF;
-        transition: .6s;
-    }
-
-    .checkout_form_active{
-        right: 50px;
-        transition: .6s;
-    }
-
-    .container {
-        position: relative;
-        right: 0;
-        transition: right 0.6s ease;
-    }
-
-    .cont_active {
-        right: 450px;
-    }
-
-    .attributes_room{
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-    }
-
-    .attributes_room li{
-        align-items: center;
-        gap: 10px;
-        border: 1px solid #8f8fa8;
-        border-radius: 5px;
-        padding: 10px;
-    }
-
-    .attributes_room li p{
-        margin: 0;
-    }
-
-    .threed_cont{
-        display: none;
-
-    }
-
-
-
-
-    .webgl{
-        position: fixed;
-        z-index: 105;
-        top: 50%;
-        right: 200px;
-        transform: translateY(-50%);
-        display: block;
-    }
-
-    .active_webdl{
-        display: block;
-        position: fixed;
-        z-index: 200;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: black;
-        overflow: hidden;
-    }
-
-    .threed_cont .text{
-        position: absolute;
-        top: 50%;
-        left: 200px;
-        color: #FFF;
-        width: 500px;
-        z-index: 201;
-        transform: translateY(-50%);
-    }
-
-    .close_threed{
-        position: absolute;
-        top: 50px;
-        right: 50px;
-    }
-    .close_threed img{
-        width: 30px;
-    }
-
-
-</style>
-
-
+                $.ajax({
+                    type: 'POST',
+                    url: '{{ route("service-lead.store") }}',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        alert(response.success);
+                        $('#bookingModal').modal('hide');
+                    },
+                    error: function(response) {
+                        alert('Ошибка при отправке формы.');
+                    }
+                });
+            });
+        </script>
 
 @include('includes.footer')
+

@@ -2474,15 +2474,15 @@ ol {
 }
 
 .blog-single-sidebar .bs-latest-news .bl-item:hover:after {
-	opacity: 0;
+	opacity: 1;
 }
 
 .blog-single-sidebar .bs-latest-news .bl-item:hover h5 {
-	color: #ffffff;
+	color: #000;
 }
 
 .blog-single-sidebar .bs-latest-news .bl-item:hover span {
-	color: #ffffff;
+	color: #000;
 }
 
 .blog-single-sidebar .bs-latest-news .bl-item h5 {

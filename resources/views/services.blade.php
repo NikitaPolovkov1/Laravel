@@ -78,7 +78,7 @@
                                     <p class="card-text">Время: {{ $service->hours }} часа</p>
                                     <!-- Кнопка вызова модального окна -->
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingModal" data-service="{{ $service->name }}">
-                                        Забронировать
+                                        Заказать
                                     </button>
                                 </div>
                             </div>

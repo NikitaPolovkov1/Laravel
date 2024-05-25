@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Event;
 use App\Models\House;
 use App\Models\Lead;
 use App\Models\Post;
 use App\Models\Service;
+use App\Models\ServiceLead;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +20,9 @@ class AdminController extends Controller
 
         $houses = House::all();
         $leads = Lead::orderby('created_at', 'desc')->take(5)->get();
-        return view('admin.dashboard',  compact('leads', 'houses'));
+
+        $serviceleads = ServiceLead::orderby('created_at', 'desc')->take(5)->get();
+        return view('admin.dashboard',  compact('leads', 'houses', 'serviceleads'));
     }
 
 
@@ -33,6 +38,15 @@ class AdminController extends Controller
 
         // Вернуть представление с файлами
         return view('admin.addhouse', ['files' => $files]);
+    }
+
+
+    public function addevent(){
+
+        $files = Storage::disk('public')->files('admin');
+
+        // Вернуть представление с файлами
+        return view('admin.addevent', ['files' => $files]);
     }
 
     public function storeHouse(Request $request){
@@ -291,12 +305,88 @@ class AdminController extends Controller
 
     }
 
+    public function storeevent(Request $request)
+    {
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+            'hours' => 'required|integer',
+            'description' => 'required|string',
+            'image' => 'nullable|string', // Изменено для использования URL из медиабиблиотеки
+        ]);
+
+        Event::create($validated);
+
+        return redirect()->route('admin.events')->with('success', 'Услуга создана успешно');
+
+
+    }
+
+
+
 
     public function destroyservice(Service $service)
     {
         $service->delete();
         return redirect()->route('admin.services')->with('success', 'Услуга удалена');
     }
+
+
+    public function events()
+    {
+        $files = Storage::disk('public')->files('admin');
+        $events = Event::all();
+        // Вернуть представление с файлами
+        return view('admin.events', ['files' => $files], compact('events'));
+    }
+
+    public function destroyevent(Event $event)
+    {
+        $event->delete();
+        return redirect()->route('admin.events')->with('success', 'Мероприятие удалена');
+    }
+
+
+
+    public function edittype() {
+        $types = Type::all();
+        return view('admin.edittype', compact('types'));
+    }
+
+    public function storetype(Request $request)
+    {
+        // Валидация данных
+        $request->validate([
+            'type_name' => 'required|string|max:255', // Поле "Название" обязательно для заполнения и должно быть строкой не длиннее 255 символов
+        ]);
+
+        // Создание нового типа
+        $type = new Type();
+        $type->name = $request->input('type_name');
+        $type->save(); // Сохранение типа в базе данных
+
+        // Возвращаем успешный ответ
+        return response()->json(['message' => 'Тип успешно добавлен'], 200);
+    }
+
+    public function destroytype($id)
+    {
+        // Находим тип по его идентификатору
+        $type = Type::where('id', $id)->first();
+
+        // Проверяем, существует ли тип
+        if (!$type) {
+            return response()->json(['message' => 'Тип не найден'], 404);
+        }
+
+        // Удаляем тип
+        $type->delete();
+
+        // Возвращаем успешный ответ
+        return response()->json(['message' => 'Тип успешно удален'], 200);
+    }
+
 
 
 

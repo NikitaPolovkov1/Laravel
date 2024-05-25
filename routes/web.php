@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\UploadController;
+use App\Models\House;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\MediaLibraryController;
+use PDF;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,6 +84,14 @@ Route::delete('/admin/deletehouse/{id}', [AdminController::class, 'destroy'])->n
 
 
 
+Route::get('/generate-pdf', function () {
+    $houses = House::with('dates')->get();
+
+
+    $pdf = PDF::loadView('pdf', compact('houses'));
+
+    return $pdf->download('report.pdf');
+});
 
 Route::get('admin/addcategory', [AdminController::class, 'editcat'])->name('admin.editcat');
 Route::post('admin/savecategory', [AdminController::class, 'storecat'])->name('admin.categories.store');
@@ -137,5 +147,25 @@ Route::post('/service-lead', [ServiceController::class, 'storeLead'])->name('ser
 
 Route::get('/services', [ServiceController::class, 'index']);
 
+
+
+
+
+
+
+
+
+Route::get('/admin/events', [AdminController::class, 'events'])->name('admin.events');
+Route::get('/admin/events/create', [AdminController::class, 'addevent'])->name('admin.events.create');
+
+Route::post('/admin/events', [AdminController::class, 'storeevent'])->name('admin.events.store');
+
+Route::delete('/admin/events/{event}', [AdminController::class, 'destroyevent'])->name('admin.events.destroy');
+
+
+
+Route::get('admin/addtype', [AdminController::class, 'edittype'])->name('admin.edittype');
+Route::post('admin/savetype', [AdminController::class, 'storetype'])->name('admin.types.store');
+Route::delete('/admin/types/{id}', [AdminController::class, 'destroytype'])->name('admin.types.destroy');
 
 

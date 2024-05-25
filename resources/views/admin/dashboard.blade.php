@@ -7,7 +7,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid">
-                <h1 class="mt-4">Dashboard</h1>
+                <h1 class="mt-4">Заявки и отчеты</h1>
                 <div class="card mb-4">
                     <div class="card-header"><i class="fas fa-table mr-1"></i>Дома</div>
                     <div class="card-body">
@@ -21,16 +21,9 @@
                                                 <div class="col-8">
                                                     <p class="text-sm mb-0 text-capitalize font-weight-bold">Скачать отчёт по дому</p>
                                                     <div class="row">
-                                                        <div class="col-9">
-                                                            <select class="form-control" id="houseSelect">
-                                                                @foreach($houses as $house)
-                                                                    <option value="{{$house->houseID}}">{{$house->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <a class="btn btn-behance bg-gradient-primary " id="downloadPdfLink" href="/export-pdf/">Скачать</a>
-                                                        </div>
+
+
+                                                        <a class="btn btn-primary" href="/generate-pdf">Сформировать отчет по сободным домам</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -99,6 +92,44 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-header pb-0">
+                                            <div class="d-flex flex-row justify-content-between">
+                                                <div>
+                                                    <h5 class="mb-0">Заявки</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body px-0 pt-0 pb-2">
+                                            <div class="table-responsive p-0">
+                                                <table class="table align-items-center mb-0">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Услуга</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Имя</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Электронная почта</th>
+                                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Номер телефона</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @foreach($serviceleads as $lead)
+                                                        <tr>
+                                                            <td>{{$lead->service_name}}</td>
+                                                            <td>{{$lead->name}}</td>
+                                                            <td>{{$lead->email}}</td>
+                                                            <td>{{$lead->phone}}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         </div>
                     </div>

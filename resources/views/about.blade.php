@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <img src="{{asset('Images/aboutPage/img.png')}}" alt="">
+            <img src="{{asset('Images/aboutPage/karta.png')}}" alt="">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-us">
@@ -47,11 +47,12 @@
                         <h4>НАШЕ КАЧЕСТВО</h4>
                         <p>Donec enim ipsum porta justo integer at velna vitae auctor integer congue magna at risus auctor purus unt pretium ligula rutrum integer sapien ultrice ligula luctus undo magna risus</p>
                         <ul>
-                            <li><i class="fa fa-check-circle-o"></i>Lorem ipsum dolor sitdoni amet, consectetur dont adipis elite vivamus interdum.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Integer pulvinar ante nulla, ac fermentum ex congue id vestibulum ensectetur.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Proin blandit nibh in quam semper iaculis lorem ipsum dolor salama ender.</li>
-                            <li><i class="fa fa-check-circle-o"></i>Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</li>
+                            <li><i class="fa fa-check-circle-o"></i>Поддержка </li>
+                            <li><i class="fa fa-check-circle-o"></i>Быстрый доступ </li>
+                            <li><i class="fa fa-check-circle-o"></i>Эффективные решения</li>
+                            <li><i class="fa fa-check-circle-o"></i>Безопасность</li>
                         </ul>
+
 
                     </div>
                 </div>

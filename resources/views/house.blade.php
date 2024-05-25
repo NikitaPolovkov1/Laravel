@@ -7,7 +7,7 @@
     <div class="hero-items owl-carousel">
 
         @foreach(json_decode($house->images) as $image)
-            <div class="single-hero-item set-bg" style="max-height: 800px" data-setbg="{{asset($image)}}">
+            <div class="single-hero-item set-bg" style="max-height: 800px" data-setbg="{{$image}}">
             </div>
 
         @endforeach
@@ -308,6 +308,7 @@
     });
 
 
+
     var dateRangeInput = document.getElementById('daterange');
 
     $('input[name="daterange"]').change(function() {
@@ -380,9 +381,21 @@
         document.getElementById('alertError').style.display = 'none';
         document.getElementById('count_nights').textContent = nights;
         document.getElementById('result_price').textContent = all_price + " BYN";
-        document.getElementById('start_date_').textContent = startDate;
-        document.getElementById('end_date_').textContent = endDate;
+
+        function formatDate(date) {
+            const months = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+            const day = date.getDate();
+            const monthIndex = date.getMonth();
+            const year = date.getFullYear();
+            return `${day} ${months[monthIndex]} ${year}`;
+        }
+
+
+        document.getElementById('start_date_').textContent = formatDate(new Date(startDate));
+        document.getElementById('end_date_').textContent = formatDate(new Date(endDate));
     });
+
+
 
     function get_people() {
         if(document.getElementById('inputGroupSelect01').value == "Количество взрослых..."){

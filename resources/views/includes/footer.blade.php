@@ -1,4 +1,4 @@
-<!-- Footer Section Begin -->
+<!-- Раздел подвала -->
 <footer class="footer-section">
     <div class="container">
         <div class="row">
@@ -7,8 +7,7 @@
                     <div class="f-logo">
                         <a href="#"><img src="img/logo.png" alt=""></a>
                     </div>
-                    <p>Despite growth of the Internet over the past seven years, the use of toll-free phone numbers
-                        in television advertising continues.</p>
+                    <p>Несмотря на рост интернета за последние семь лет, использование бесплатных телефонных номеров в телевизионной рекламе продолжается.</p>
                     <div class="social-links">
                         <h6>Подпишитесь</h6>
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -24,16 +23,16 @@
                     <h5>Блог</h5>
                     <div class="footer-blog">
                         <a href="#" class="fb-item">
-                            <h6>Most people who work</h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            <h6>Большинство людей, которые работают</h6>
+                            <span class="blog-time"><i class="fa fa-clock-o"></i> 02 января 2019</span>
                         </a>
                         <a href="#" class="fb-item">
-                            <h6>Freelance Design Tricks How </h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            <h6>Фриланс-дизайн: как</h6>
+                            <span class="blog-time"><i class="fa fa-clock-o"></i> 02 января 2019</span>
                         </a>
                         <a href="#" class="fb-item">
-                            <h6>have a computer at home have had </h6>
-                            <span class="blog-time"><i class="fa fa-clock-o"></i> Jan 02, 2019</span>
+                            <h6>иметь компьютер дома</h6>
+                            <span class="blog-time"><i class="fa fa-clock-o"></i> 02 января 2019</span>
                         </a>
                     </div>
                 </div>
@@ -44,8 +43,8 @@
                     <ul class="workout-program">
                         <li><a href="/">Главная</a></li>
                         <li><a href="/about">О нас</a></li>
-                        <li><a href="/usadba">Усадьба</a>
-                        <li><a href="/gallery">Фотогаллерея</a></li>
+                        <li><a href="/usadba">Усадьба</a></li>
+                        <li><a href="/gallery">Фотогалерея</a></li>
                         <li><a href="/contacts">Контакты</a></li>
                     </ul>
                 </div>
@@ -56,7 +55,7 @@
                     <ul class="footer-info">
                         <li>
                             <i class="fa fa-phone"></i>
-                            <span>Phone:</span>
+                            <span>Телефон:</span>
                             (12) 345 6789
                         </li>
                         <li>
@@ -66,7 +65,7 @@
                         </li>
                         <li>
                             <i class="fa fa-map-marker"></i>
-                            <span>Address</span>
+                            <span>Адрес</span>
                             Iris Watson, Box 283 8562, NY
                         </li>
                     </ul>
@@ -78,19 +77,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <div class="ct-inside"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+                    <div class="ct-inside"><!-- Ссылка на Colorlib не может быть удалена. Шаблон лицензирован по CC BY 3.0. -->
+                        Авторские права &copy;<script>document.write(new Date().getFullYear());</script> Все права защищены | Этот шаблон сделан с <i class="fa fa-heart-o" aria-hidden="true"></i> от <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Ссылка на Colorlib не может быть удалена. Шаблон лицензирован по CC BY 3.0. -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </footer>
-<!-- Footer Section End -->
-
-<!-- Js Plugins -->
-
-<!-- Js Plugins -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://unpkg.com/three@0.126.0/examples/js/controls/OrbitControls.js"></script>
@@ -104,9 +99,36 @@
 <script src="{{asset('js/main.js')}}"></script>
 <script src="{{asset('js/house.js')}}"></script>
 
+<div class="search_modal">
+    <form action="{{route('search')}}" id="search_form" class="">
+        <input type="text" class="form-control mr-2" name="search" placeholder="Поиск">
+        <button type="submit" class="btn btn-dark">Найти</button>
+    </form>
+</div>
 
 
+<div class="overlay">
+
+</div>
+<!-- Map Section End -->
+
+<!-- Footer Section End -->
+
+<!-- Js Plugins -->
+<script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+
+
+<script>
+    $('#search_btn').click(function(){
+        $('.search_modal').addClass('active_search');
+        $('.overlay').show();
+    });
+
+    $('.overlay').click(function(){
+        $('.search_modal').removeClass('active_search');
+        $('.overlay').hide();
+    });
+</script>
 
 </body>
-
 </html>

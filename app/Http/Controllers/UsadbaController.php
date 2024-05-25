@@ -9,6 +9,8 @@ class UsadbaController extends Controller
 {
     function show()
     {
-       return view('usadba');
+
+        $houses = House::all();
+       return view('usadba', compact('houses'));
     }
 }

@@ -50,10 +50,7 @@
             </a>
         </div>
         <div class="top-social">
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-search"></i></a>
+            <a id="search_btn" style="background-color: transparent; border: none"><i class="fa fa-search" style="color: #FFF"></i>
 
 
             @if(Auth::check())
@@ -69,12 +66,12 @@
                 <nav class="mainmenu mobile-menu">
                     <ul>
                         <li><a href="/">Главная</a></li>
-                        <li class="active"><a href="/about">О нас</a></li>
+                        <li class=""><a href="/about">О нас</a></li>
                         <li><a href="/usadba">Усадьба</a>
                             <ul class="dropdown">
                                 <li><a href="./houses">Дома</a></li>
                                 <li><a href="/events">Мероприятия</a></li>
-                                <li><a href="./blog-single.html">Услуги</a></li>
+                                <li><a href="/services">Услуги</a></li>
                             </ul>
                         </li>
                         <li><a href="/gallery">Фотогаллерея</a></li>

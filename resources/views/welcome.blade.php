@@ -37,9 +37,6 @@
             </a>
         </div>
         <div class="top-social">
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-youtube-play"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
             <a id="search_btn" style="background-color: transparent; border: none"><i class="fa fa-search" style="color: #FFF"></i>
             </a>
             @if(Auth::check())
@@ -65,10 +62,7 @@
                         <li><a href="/gallery">Фотогалерея</a></li>
 
                         <li><a href="/blog">Блог</a>
-                            <ul class="dropdown">
-                                <li><a href="./about-us.html">Мероприятия</a></li>
-                                <li><a href="./blog-single.html">События</a></li>
-                            </ul>
+
                         </li>
                         <li><a href="/contacts">Контакты</a></li>
                     </ul>
@@ -109,7 +103,7 @@
                 </div>
             </div>
         </div>
-        <div class="single-hero-item set-bg" data-setbg="{{asset('Images/img.png')}}">
+        <div class="single-hero-item set-bg" data-setbg="{{asset('Images/karta.png')}}">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
@@ -237,15 +231,6 @@
                 <li>Будние: <span>09:00 - 20:00</span></li>
                 <li>Выходные: <span>09:00 - 18:00</span></li>
             </ul>
-        </div>
-        <div class="map-contact-form">
-            <h5>Обратный звонок</h5>
-            <form action="#">
-                <input type="text" placeholder="Имя">
-                <input type="text" class="phone" placeholder="Телефон">
-                <textarea placeholder="Сообщение"></textarea>
-                <button type="submit" class="site-btn">Отправить</button>
-            </form>
         </div>
     </div>
 </div>

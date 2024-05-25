@@ -74,7 +74,7 @@
                                     <section class="hero-section">
                                         <div class="hero-items owl-carousel">
                                             @foreach(json_decode($house->images) as $image)
-                                                <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{ asset($image) }}">
+                                                <div class="single-hero-item set-bg" style="max-height: 400px" data-setbg="{{ $image }}">
                                                 </div>
                                             @endforeach
                                         </div>

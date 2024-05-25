@@ -83,7 +83,7 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="d-flex px-2 py-1">
-                                                                    <img class="" style="max-width: 200px" src="/{{json_decode($house->images)[0]}}" alt="">
+                                                                    <img class="" style="max-width: 200px" src="{{json_decode($house->images)[0]}}" alt="">
                                                                 </div>
                                                             </td>
                                                             <td>

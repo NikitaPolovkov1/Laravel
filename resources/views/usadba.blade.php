@@ -42,13 +42,71 @@
                 <div class="classes-item set-bg" data-setbg="{{asset('fotogallery/4.jpg')}}">
                     <h4>Услуги</h4>
                     <p>Проведите своё мероприятие на высшем уровне </p>
-                    <a href="#" class="primary-btn class-btn">Вырать</a>
+                    <a href="/services" class="primary-btn class-btn">Вырать</a>
                 </div>
             </div>
 
         </div>
     </div>
 </section>
+
+
+
+<section class="w-100 h-100 position-relative" style="background-image: url('{{asset('fotogallery/karta.png')}}'); background-size: cover">
+    <!-- Добавляем контейнер для домов -->
+    <div class="house-container">
+        @foreach ($houses as $house)
+            <a href="/houses/{{$house->houseID}}" class="house-marker house-marker-{{$house->houseID}} house-link" data-house="{{$house->house_name}}">{{$house->house_name}}</a>
+        @endforeach
+    </div>
+
+</section>
+
+<style>
+    /* Стили для контейнера домов */
+    .house-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Стили для кружочков */
+    .house-marker {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: red;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        display: block;
+        text-decoration: none;
+    }
+
+    .house-marker-1 {
+        top: 460px;
+        left: 946px;
+    }
+    .house-marker-2 {
+        top: 585px;
+        left: 1150px;
+    }
+    .house-marker-3 {
+        top: 520px;
+        left: 870px;
+    }
+    .house-marker-7 {
+        top: 490px;
+        left: 1007px;
+    }
+
+</style>
+
+
+
+
 <!-- Classes Section End -->
 
 
